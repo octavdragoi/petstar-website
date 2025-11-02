@@ -1,0 +1,500 @@
+/**
+ * Animations - Custom Animation Definitions
+ * Contains: SVG animations, decorative element animations, keyframes
+ */
+
+/* ===================================
+   SVG Path Drawing Animations
+   =================================== */
+
+.svg-animate svg {
+    width: 100%;
+    height: 100%;
+}
+
+.svg-animate svg path,
+.svg-animate svg circle {
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+/* Square/Rectangle Icon Animation */
+.svg-animate .path-0 {
+    stroke-dasharray: 284 286;
+    stroke-dashoffset: 285;
+    animation: draw-path 2000ms ease-in-out 0ms forwards;
+}
+
+.svg-animate .path-1 {
+    stroke-dasharray: 263 265;
+    stroke-dashoffset: 264;
+    animation: draw-path 2000ms ease-in-out 250ms forwards;
+}
+
+.svg-animate .path-2 {
+    stroke-dasharray: 120 122;
+    stroke-dashoffset: 121;
+    animation: draw-path 2000ms ease-in-out 500ms forwards;
+}
+
+.svg-animate .path-3 {
+    stroke-dasharray: 120 122;
+    stroke-dashoffset: 121;
+    animation: draw-path 2000ms ease-in-out 750ms forwards;
+}
+
+.svg-animate .path-4 {
+    stroke-dasharray: 120 122;
+    stroke-dashoffset: 121;
+    animation: draw-path 2000ms ease-in-out 1000ms forwards;
+}
+
+@keyframes draw-path {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Trigger animation when in view */
+.svg-animate.in-view .path-0,
+.svg-animate.in-view .path-1,
+.svg-animate.in-view .path-2,
+.svg-animate.in-view .path-3,
+.svg-animate.in-view .path-4 {
+    animation-play-state: running;
+}
+
+/* ===================================
+   Decorative Shape Animations
+   =================================== */
+
+/* Floating/Moving animation */
+.move-anim {
+    animation: float 6s ease-in-out infinite;
+}
+
+.move-anim-2 {
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+        transform: translateY(-10px) translateX(-10px);
+    }
+    75% {
+        transform: translateY(-30px) translateX(5px);
+    }
+}
+
+/* Zoom in/out animation */
+.zoominout {
+    animation: zoomInOut 4s ease-in-out infinite;
+}
+
+@keyframes zoomInOut {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Rotate animation */
+.rotate-image {
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulse animation */
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* ===================================
+   Decorative Shapes
+   =================================== */
+
+.shape-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 117, 255, 0.1), rgba(0, 117, 255, 0.3));
+    position: absolute;
+}
+
+.shape-dots {
+    width: 80px;
+    height: 80px;
+    background-image: radial-gradient(circle, var(--color-primary) 2px, transparent 2px);
+    background-size: 15px 15px;
+    opacity: 0.3;
+}
+
+.shape-gradient {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 117, 255, 0.2), rgba(5, 18, 41, 0.2));
+    filter: blur(40px);
+}
+
+/* ===================================
+   Text Animation Classes
+   =================================== */
+
+.text-anim {
+    opacity: 1;
+}
+
+/* Character animation (applied via GSAP) */
+.char {
+    display: inline-block;
+    transform-origin: bottom;
+}
+
+/* ===================================
+   Scroll-triggered Animations (WOW.js)
+   =================================== */
+
+/* Ensure WOW elements are initially hidden */
+.wow {
+    visibility: hidden;
+}
+
+.wow.animated {
+    visibility: visible;
+}
+
+/* Override Animate.css durations for consistency */
+.animated {
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+}
+
+.animated.fast {
+    animation-duration: 0.5s;
+}
+
+.animated.slow {
+    animation-duration: 1.2s;
+}
+
+/* ===================================
+   Custom Entrance Animations
+   =================================== */
+
+/* Fade and slide from bottom */
+@keyframes fadeInUpCustom {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInUpCustom {
+    animation-name: fadeInUpCustom;
+}
+
+/* Fade and slide from left */
+@keyframes fadeInLeftCustom {
+    from {
+        opacity: 0;
+        transform: translate3d(-40px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInLeftCustom {
+    animation-name: fadeInLeftCustom;
+}
+
+/* Fade and slide from right */
+@keyframes fadeInRightCustom {
+    from {
+        opacity: 0;
+        transform: translate3d(40px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInRightCustom {
+    animation-name: fadeInRightCustom;
+}
+
+/* Scale in */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.scaleIn {
+    animation-name: scaleIn;
+}
+
+/* ===================================
+   Loading & Progress Animations
+   =================================== */
+
+/* Progress bar animation */
+.progress-bar {
+    position: relative;
+    height: 8px;
+    background-color: var(--color-gray-light);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    border-radius: var(--radius-full);
+    transform-origin: left;
+    animation: progressFill 2s ease-out forwards;
+}
+
+@keyframes progressFill {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Skeleton loading */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ===================================
+   Counter Number Animation
+   =================================== */
+
+.odometer {
+    display: inline-block;
+    position: relative;
+}
+
+/* Odometer will be animated via JavaScript */
+
+/* ===================================
+   Scroll Indicator
+   =================================== */
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+/* ===================================
+   Image Reveal Effects
+   =================================== */
+
+.image-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-reveal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: imageReveal 2s ease-out;
+}
+
+@keyframes imageReveal {
+    to {
+        left: 100%;
+    }
+}
+
+/* ===================================
+   Performance Optimizations
+   =================================== */
+
+/* Add will-change for elements that will animate */
+.feature-item,
+.service-card,
+.hero-images-box,
+.tj-primary-btn,
+.move-anim,
+.move-anim-2,
+.zoominout,
+.rotate-image {
+    will-change: transform, opacity;
+}
+
+/* Use transform3d for hardware acceleration */
+.fadeInUp,
+.fadeInLeft,
+.fadeInRight {
+    transform: translate3d(0, 0, 0);
+}
+
+/* ===================================
+   Page Transition Effects
+   =================================== */
+
+/* Fade in page on load */
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.page-loaded {
+    animation: fadeInPage 0.5s ease-out;
+}
+
+/* ===================================
+   Hover Animations for Interactive Elements
+   =================================== */
+
+/* Scale on hover */
+.hover-scale {
+    transition: transform var(--transition-base) var(--easing);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Lift on hover */
+.hover-lift {
+    transition: transform var(--transition-base) var(--easing),
+                box-shadow var(--transition-base) var(--easing);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Glow on hover */
+.hover-glow {
+    transition: box-shadow var(--transition-base) var(--easing);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(0, 117, 255, 0.5);
+}
+
+/* ===================================
+   Stagger Delays for Multiple Elements
+   =================================== */
+
+/* For grid items that appear in sequence */
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* ===================================
+   Accessibility: Respect Reduced Motion
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    /* Disable all animations */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    /* Disable floating/moving shapes */
+    .move-anim,
+    .move-anim-2,
+    .zoominout,
+    .rotate-image,
+    .pulse,
+    .bounce {
+        animation: none !important;
+    }
+
+    /* Keep transform effects but remove animation */
+    .hover-scale:hover,
+    .hover-lift:hover {
+        animation: none !important;
+    }
+}

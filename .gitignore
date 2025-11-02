@@ -1,0 +1,87 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Node Modules (if using npm for development)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build Output (if you add a build process later)
+dist/
+build/
+*.min.css
+*.min.js
+*.map
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.log
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+*.cache
+
+# Package Manager Locks (optional - uncomment if needed)
+# package-lock.json
+# yarn.lock
+
+# macOS Specific
+*.DMG
+*.dmg
+
+# Windows Specific
+desktop.ini
+
+# Linux Specific
+.directory
+
+# Backup Files
+*.bak
+*.backup
+*.old
+
+# Compressed Files
+*.zip
+*.tar.gz
+*.rar
+
+# Large Media Files (add specific extensions if needed)
+# *.mp4
+# *.mov
+# *.avi
+
+# Documentation Drafts
+*-draft.md
+*-wip.md
+
+# Test Files
+test/
+tests/
+*.test.js
+*.spec.js
+
+cached-solvior/**
