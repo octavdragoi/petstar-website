@@ -273,6 +273,120 @@
     }
 
     /**
+     * Initialize Service/Team Card Scroll Animations with Stacking Effect
+     */
+    function initServiceCardAnimations() {
+        if (prefersReducedMotion || typeof gsap === 'undefined') {
+            console.log('Service card animations skipped');
+            return;
+        }
+
+        // Ensure ScrollTrigger is registered
+        if (typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+        }
+
+        const serviceItems = document.querySelectorAll('.service-item');
+
+        if (serviceItems.length === 0) {
+            console.log('No service items found for animation');
+            return;
+        }
+
+        console.log(`Found ${serviceItems.length} service items for animation`);
+
+        serviceItems.forEach((item, index) => {
+            // Get next item to use as end trigger
+            const nextItem = serviceItems[index + 1];
+            const isLastCard = !nextItem;
+
+            // Only animate cards that have a next card (not the last one)
+            if (!isLastCard) {
+                // Calculate initial state based on current scroll position
+                const scrollY = window.scrollY || window.pageYOffset;
+                const itemRect = item.getBoundingClientRect();
+                const nextItemRect = nextItem.getBoundingClientRect();
+
+                const itemTop = itemRect.top + scrollY;
+                const nextItemTop = nextItemRect.top + scrollY;
+
+                // Calculate if we're in the animation range
+                const startPos = itemTop - 100;
+                const endPos = nextItemTop - 100;
+                const currentPos = scrollY;
+
+                let initialProgress = 0;
+                if (currentPos > startPos) {
+                    if (currentPos >= endPos) {
+                        initialProgress = 1;
+                    } else {
+                        initialProgress = (currentPos - startPos) / (endPos - startPos);
+                    }
+                }
+
+                // Set initial state immediately
+                const initialScale = 1 - (initialProgress * 0.2);
+                const initialOpacity = 1 - initialProgress;
+                gsap.set(item, {
+                    scale: initialScale,
+                    opacity: initialOpacity
+                });
+
+                // Stacking scroll animation - cards slide under each other
+                const st = ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 100px", // When card reaches sticky position
+                    endTrigger: nextItem, // Use next card as end trigger
+                    end: "top 100px", // Fade completes when next card hits top
+                    scrub: true,
+                    onUpdate: (self) => {
+                        const progress = self.progress;
+
+                        // Synchronized shrinking and fading - both fade to 0
+                        const scale = 1 - (progress * 0.2); // Shrink to 80%
+                        const opacity = 1 - progress; // Fade completely to 0
+
+                        gsap.to(item, {
+                            scale: scale,
+                            opacity: opacity,
+                            duration: 0.1,
+                            ease: "none"
+                        });
+                    },
+                    onLeaveStart: (self) => {
+                        // When scrolling back up, restore
+                        if (self.direction < 0) {
+                            gsap.to(item, {
+                                scale: 1,
+                                opacity: 1,
+                                duration: 0.3,
+                                ease: "power2.out"
+                            });
+                        }
+                    }
+                });
+            }
+
+            // Initial entrance animation
+            gsap.from(item, {
+                y: 100,
+                opacity: 0,
+                scale: 0.95,
+                duration: 0.8,
+                delay: index * 0.15,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+
+        console.log('Service card stacking animations initialized');
+    }
+
+    /**
      * Initialize all animations when DOM is ready
      */
     function init() {
@@ -302,11 +416,17 @@
         // Initialize parallax effects
         initParallax();
 
+        // Initialize service card scroll animations
+        initServiceCardAnimations();
+
         // Add page-loaded class for fade-in effect
         document.body.classList.add('page-loaded');
 
         console.log('All animations initialized');
     }
+
+    // Expose initServiceCardAnimations globally for re-initialization after includes load
+    window.initServiceCardAnimations = initServiceCardAnimations;
 
     // Start initialization
     init();

@@ -334,6 +334,97 @@
     }
 
     /**
+     * Load HTML Includes
+     */
+    function loadIncludes() {
+        const includes = [
+            { id: 'header-placeholder', file: 'includes/header.html' },
+            { id: 'story-placeholder', file: 'includes/story.html' },
+            { id: 'teams-placeholder', file: 'includes/teams.html' },
+            { id: 'products-placeholder', file: 'includes/products.html' },
+            { id: 'accreditations-placeholder', file: 'includes/accreditations.html' },
+            { id: 'portfolio-placeholder', file: 'includes/portfolio.html' },
+            { id: 'virtual-tour-placeholder', file: 'includes/virtual-tour.html' },
+            { id: 'news-placeholder', file: 'includes/news.html' },
+            { id: 'contact-placeholder', file: 'includes/contact.html' },
+            { id: 'footer-placeholder', file: 'includes/footer.html' }
+        ];
+
+        let loadedCount = 0;
+        const totalIncludes = includes.length;
+
+        includes.forEach(include => {
+            const element = document.getElementById(include.id);
+
+            if (!element) {
+                console.warn(`Element with id "${include.id}" not found`);
+                loadedCount++;
+                checkAllLoaded();
+                return;
+            }
+
+            fetch(include.file)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${include.file}: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    element.innerHTML = html;
+                    loadedCount++;
+                    console.log(`Loaded: ${include.file}`);
+                    checkAllLoaded();
+                })
+                .catch(error => {
+                    console.error(`Error loading ${include.file}:`, error);
+                    loadedCount++;
+                    checkAllLoaded();
+                });
+        });
+
+        function checkAllLoaded() {
+            if (loadedCount === totalIncludes) {
+                console.log('All includes loaded successfully');
+
+                // Re-initialize animations and components after includes are loaded
+                if (window.WOW) {
+                    new WOW().init();
+                }
+
+                // Re-initialize service card animations for dynamically loaded content
+                if (typeof window.initServiceCardAnimations === 'function') {
+                    setTimeout(() => {
+                        window.initServiceCardAnimations();
+                    }, 100);
+                }
+
+                // Re-initialize GSAP ScrollTrigger for new content
+                if (typeof ScrollTrigger !== 'undefined') {
+                    setTimeout(() => {
+                        ScrollTrigger.refresh();
+                    }, 150);
+                }
+
+                // Re-initialize other components
+                if (typeof initScrollAnimations === 'function') {
+                    initScrollAnimations();
+                }
+
+                // Re-initialize external links
+                initExternalLinks();
+
+                // Re-handle image loading
+                handleImageLoading();
+
+                // Trigger custom event
+                const event = new CustomEvent('includesLoaded');
+                document.dispatchEvent(event);
+            }
+        }
+    }
+
+    /**
      * Initialize all main functionality
      */
     function init() {
@@ -349,6 +440,9 @@
 
         // Check browser support
         checkBrowserSupport();
+
+        // Load includes first
+        loadIncludes();
 
         // Initialize preloader
         initPreloader();

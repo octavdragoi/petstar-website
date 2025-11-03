@@ -112,6 +112,21 @@
     transform: scale(0.98);
 }
 
+/* Service Button Variant (White Background) */
+.service-btn.tj-primary-btn {
+    background-color: var(--color-light);
+}
+
+.service-btn.tj-primary-btn .btn_text {
+    color: var(--color-dark);
+    text-shadow: 0 23px 0 var(--color-dark);
+}
+
+.service-btn.tj-primary-btn:hover .btn_text {
+    color: var(--color-light);
+    text-shadow: 0 23px 0 var(--color-light);
+}
+
 /* Mobile Responsive */
 @media (max-width: 575px) {
     .tj-primary-btn {
@@ -696,4 +711,220 @@ textarea.form-control {
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
     font-size: var(--font-size-sm);
+}
+
+/* ===================================
+   Service/Team Cards (Stacked Layout)
+   =================================== */
+
+.tj_service {
+    margin-top: var(--spacing-2xl);
+}
+
+.service-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.service-item {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    background-color: var(--color-dark);
+    border-radius: 20px;
+    padding: var(--spacing-2xl);
+    transition: all var(--transition-slow) var(--easing);
+    overflow: hidden;
+    will-change: transform, opacity;
+}
+
+/* Stacking z-index - reversed so earlier cards go under later cards */
+.service-item:nth-child(1) {
+    z-index: 7;
+}
+
+.service-item:nth-child(2) {
+    z-index: 8;
+}
+
+.service-item:nth-child(3) {
+    z-index: 9;
+}
+
+.service-item:nth-child(4) {
+    z-index: 10;
+}
+
+.service-item.team-stack::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 20px;
+    right: 20px;
+    height: 100%;
+    background: rgba(5, 18, 41, 0.5);
+    border-radius: 20px;
+    z-index: -1;
+    transition: all var(--transition-slow) var(--easing);
+}
+
+.service-content {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.service-number {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    font-size: 48px;
+    line-height: 1;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.service-number span:not(.active) {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.service-text {
+    color: var(--color-light);
+}
+
+.service-icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+    font-size: 36px;
+    color: var(--color-light);
+    transition: all var(--transition-base) var(--easing);
+}
+
+.service-text .title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.service-text .title a {
+    color: var(--color-light);
+    text-decoration: none;
+    transition: color var(--transition-base) var(--easing);
+}
+
+.service-text .title a:hover {
+    color: var(--color-primary);
+}
+
+.service-text .desc {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-lg);
+    max-width: 500px;
+}
+
+.service-btn {
+    margin-top: var(--spacing-md);
+}
+
+.service-images {
+    flex: 0 0 450px;
+    width: 450px;
+    height: 450px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.service-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-slow) var(--easing);
+}
+
+/* Hover Effects */
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 117, 255, 0.2);
+}
+
+.service-item:hover .service-icons {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.service-item:hover .service-images img {
+    transform: scale(1.05);
+}
+
+.service-item.team-stack:hover::after {
+    bottom: -35px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .service-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-images {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 450px;
+        height: 350px;
+    }
+
+    .service-text .desc {
+        max-width: 100%;
+    }
+
+    .service-item.team-stack {
+        margin-bottom: 0;
+    }
+
+    .service-item.team-stack::after {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-item {
+        padding: var(--spacing-lg);
+    }
+
+    .service-number {
+        font-size: 36px;
+    }
+
+    .service-icons {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .service-text .title {
+        font-size: var(--font-size-xl);
+    }
+
+    .service-images {
+        height: 280px;
+    }
 }
