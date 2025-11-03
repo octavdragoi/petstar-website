@@ -26,8 +26,6 @@ yarn-error.log*
 # Build Output (if you add a build process later)
 dist/
 build/
-*.min.css
-*.min.js
 *.map
 
 # Temporary Files
