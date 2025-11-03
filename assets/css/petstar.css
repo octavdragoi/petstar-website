@@ -1,0 +1,75 @@
+/* ======================================
+   PETSTAR CUSTOM STYLES
+   
+   IMPORTANT: Only PetStar brand colors
+   DO NOT add custom CSS unless explicitly required
+   Template's main.css handles all styling
+====================================== */
+
+/* ======================================
+   PETSTAR BRAND COLORS
+   Customize these to match PetStar brand
+====================================== */
+:root {
+  /* Primary Brand Color - Update to PetStar blue */
+  --tj-color-theme-primary: #0075ff;
+  
+  /* Secondary/Dark Color */
+  --tj-color-theme-secondary: #051229;
+  
+  /* Accent Color (for highlights, success states) */
+  --tj-color-accent: #00c853;
+  
+  /* Keep these from template or adjust as needed */
+  --tj-color-heading-primary: #051229;
+  --tj-color-text-body: #364052;
+}
+
+/* ======================================
+   PETSTAR HEADER CUSTOMIZATION
+   Override topbar to use dark background instead of primary blue
+====================================== */
+.header-bottom {
+  background-color: var(--tj-color-theme-dark);
+}
+
+/* ======================================
+   HERO & FEATURES SPACING ADJUSTMENTS
+   - Increase hero bottom padding to prevent curve overlap
+   - Reduce features section height (it's just for the curve)
+====================================== */
+.tj-hero-section {
+  padding-bottom: 80px;
+}
+
+@media (max-width: 991px) {
+  .tj-hero-section {
+    padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tj-hero-section {
+    padding-bottom: 60px;
+  }
+}
+
+/* Reduce dummy features section height */
+#features .tj-feature-section-wrap {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 991px) {
+  #features .tj-feature-section-wrap {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  #features .tj-feature-section-wrap {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
