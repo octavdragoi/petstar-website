@@ -1,0 +1,23 @@
+
+module my-nginx 1.0;
+
+require {
+	type user_home_t;
+	type httpd_t;
+	type http_cache_port_t;
+	type soundd_port_t;
+	type container_t;
+	class tcp_socket name_connect;
+	class file read;
+}
+
+#============= container_t ==============
+allow container_t user_home_t:file read;
+
+#============= httpd_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t http_cache_port_t:tcp_socket name_connect;
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t soundd_port_t:tcp_socket name_connect;

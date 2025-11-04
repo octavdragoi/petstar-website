@@ -141,7 +141,7 @@
       <!-- ======================================
          NEWS SECTION - Section 10
       ====================================== -->
-      <!-- News section will be added here -->
+      <div id="news-section"></div>
 
       <!-- ======================================
          CONTACT CTA SECTION - Section 11
@@ -171,6 +171,8 @@
    <script src="assets/js/odometer.min.js"></script>
    <script src="assets/js/main.js"></script>
    <script src="assets/js/petstar.js"></script>
+   <script src="assets/js/config.js"></script>
+   <script src="assets/js/news-loader.js"></script>
 
    <!-- Load Section Includes -->
    <script>
@@ -254,6 +256,15 @@
                // Refresh all ScrollTriggers to recalculate positions
                ScrollTrigger.refresh();
             }
+         });
+
+         // Load news section and fetch articles
+         $('#news-section').load('sections/section-10-news.html', function() {
+            // Load news articles after section is loaded
+            if (typeof NewsLoader !== 'undefined') {
+               NewsLoader.renderNewsSection('news-container');
+            }
+            ScrollTrigger.refresh();
          });
 
          // Load footer section

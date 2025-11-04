@@ -1,0 +1,11 @@
+
+module my-pangofontcon 1.0;
+
+require {
+	type setroubleshoot_fixit_t;
+	type fs_t;
+	class filesystem getattr;
+}
+
+#============= setroubleshoot_fixit_t ==============
+allow setroubleshoot_fixit_t fs_t:filesystem getattr;
