@@ -110,9 +110,9 @@ HOST=0.0.0.0
 PORT=1337
 
 # Public URL Configuration
-# Change these to match your production domain
-URL=https://petstar-dash.ro
-SERVER_URL=https://petstar-dash.ro
+# Strapi CMS is hosted at api.petstar-dash.ro
+URL=https://api.petstar-dash.ro
+SERVER_URL=https://api.petstar-dash.ro
 
 # Secrets - Generated on $TIMESTAMP
 APP_KEYS=$APP_KEYS

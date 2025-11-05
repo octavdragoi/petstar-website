@@ -26,7 +26,7 @@ services:
       - "1337:1337"
     environment:
       - STRAPI_CORS_ENABLED=true
-      - STRAPI_CORS_ORIGIN=http://localhost:1337,http://localhost:8081,http://127.0.0.1:8081,https://petstar.ro,https://petstar-dash.ro
+      - STRAPI_CORS_ORIGIN=http://localhost:1337,http://localhost:8081,http://127.0.0.1:8081,https://petstar.ro,https://petstar-dash.ro,https://api.petstar-dash.ro
     volumes:
       - ../petstar-cms/src:/opt/app/src:z
       - ../petstar-cms/config:/opt/app/config:z
