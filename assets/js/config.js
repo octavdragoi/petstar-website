@@ -7,8 +7,8 @@ const PetStarConfig = {
     // Strapi CMS API URL
     // Development: 'http://localhost:1337/api'
     // Production: 'https://api.petstar.com/api'
-    // apiUrl: 'https://api.petstar.com/api',
-    apiUrl: 'http://localhost:1337/api',
+    apiUrl: 'https://api.petstar-dash.ro/api',
+    // apiUrl: 'http://localhost:1337/api',
     
     // Strapi API Token (required for authenticated requests)
     // Get this from: Strapi Admin → Settings → API Tokens → Create new API Token
