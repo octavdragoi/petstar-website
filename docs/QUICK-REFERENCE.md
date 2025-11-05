@@ -97,6 +97,15 @@ docker compose down
 docker compose up -d --build
 ```
 
+### Permission Denied Errors (Podman)
+```bash
+cd ~/petstar-website/petstar-cms
+chmod -R 777 database .tmp public .cache
+cd ~/petstar-website/docker
+podman-compose restart strapi
+```
+See [PODMAN-PERMISSIONS-FIX.md](PODMAN-PERMISSIONS-FIX.md) for details.
+
 ### Everything's Broken - Fresh Start
 ```bash
 cd ~/petstar-website

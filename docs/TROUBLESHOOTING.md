@@ -34,7 +34,82 @@ curl -s http://localhost:1337/_health && echo "✓ Healthy" || echo "✗ Unhealt
 
 ## Common Issues & Solutions
 
-### 1. Strapi Won't Start
+### 1. Permission Denied Errors (Podman/Rootless)
+
+#### Symptoms:
+- `EACCES: permission denied, mkdir '/opt/app/database/migrations'`
+- `EACCES: permission denied, open '/opt/app/.tmp/data.db'`
+- Container starts but Strapi fails to initialize
+- Errors about unable to create directories
+
+#### Cause:
+This is a common issue with **Podman rootless containers** where the container user doesn't have write permissions to mounted volumes. Podman runs containers as non-root by default, and the UIDs don't always match between the host and container.
+
+#### Solution 1: Use the Regenerate Script (Recommended)
+The `regenerate-strapi-db.sh` script now automatically handles permissions:
+```bash
+cd ~/petstar-website
+./scripts/regenerate-strapi-db.sh
+```
+
+The script will:
+- Pre-create all necessary directories
+- Set appropriate permissions (777 for Podman compatibility)
+- Ensure the container can write to all required locations
+
+#### Solution 2: Manual Permission Fix
+If you encounter this error during normal operation:
+```bash
+cd ~/petstar-website
+
+# Stop containers
+cd docker
+podman-compose down
+
+# Fix permissions on all Strapi directories
+cd ~/petstar-website/petstar-cms
+chmod -R 777 database .tmp public .cache
+
+# Restart containers
+cd ~/petstar-website/docker
+podman-compose up -d
+```
+
+#### Solution 3: Pre-create Directories Before First Run
+If setting up for the first time:
+```bash
+cd ~/petstar-website/petstar-cms
+
+# Create all necessary directories
+mkdir -p database/migrations .tmp public/uploads .cache
+
+# Set permissions
+chmod -R 777 database .tmp public .cache
+
+# Now start containers
+cd ~/petstar-website/docker
+podman-compose up -d
+```
+
+#### Why 777 Permissions?
+With Podman rootless, the container runs as a different UID than your host user. Setting 777 (rwxrwxrwx) ensures the container can write regardless of UID mapping. This is safe because:
+- These directories are inside your project folder
+- Only contain application data (not system files)
+- Podman provides user namespace isolation
+
+#### Alternative: Use Podman's :z or :Z Volume Options
+If you prefer more restrictive permissions, modify `docker-compose.yml` to use Podman's SELinux labeling:
+```yaml
+volumes:
+  - ../petstar-cms/.tmp:/opt/app/.tmp:z
+  - ../petstar-cms/database:/opt/app/database:z
+```
+
+The `:z` suffix tells Podman to automatically relabel the files for container access.
+
+---
+
+### 2. Strapi Won't Start
 
 #### Symptoms:
 - Container keeps restarting

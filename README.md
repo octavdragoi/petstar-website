@@ -202,10 +202,21 @@ cd docker
 make logs | grep -i error
 ```
 
+### Common Issue: Permission Denied (Podman)
+If you see `EACCES: permission denied` errors:
+```bash
+cd petstar-cms
+chmod -R 777 database .tmp public .cache
+cd ../docker
+make restart
+```
+See [docs/PODMAN-PERMISSIONS-FIX.md](docs/PODMAN-PERMISSIONS-FIX.md) for details.
+
 ### Emergency Reset
 ```bash
 ./scripts/regenerate-strapi-db.sh
 ```
+This script automatically handles permissions!
 
 ### Full Documentation
 See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for comprehensive troubleshooting.
