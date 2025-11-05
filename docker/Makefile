@@ -1,11 +1,27 @@
 .PHONY: help up down restart logs logs-web logs-strapi ps build clean backup restore
 
-# Docker Compose command (we're in docker/ subdirectory)
-# DC := docker-compose
-DC := podman-compose
+# Auto-detect container runtime (Docker or Podman)
+# Checks in order of preference: docker compose plugin, docker-compose, podman compose plugin, podman-compose
+DOCKER_COMPOSE := $(shell command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1 && echo "docker compose")
+ifndef DOCKER_COMPOSE
+	DOCKER_COMPOSE := $(shell command -v docker-compose >/dev/null 2>&1 && echo "docker-compose")
+endif
+ifndef DOCKER_COMPOSE
+	DOCKER_COMPOSE := $(shell command -v podman >/dev/null 2>&1 && podman compose version >/dev/null 2>&1 && echo "podman compose")
+endif
+ifndef DOCKER_COMPOSE
+	DOCKER_COMPOSE := $(shell command -v podman-compose >/dev/null 2>&1 && echo "podman-compose")
+endif
+ifndef DOCKER_COMPOSE
+	$(error Neither Docker nor Podman found. Please install Docker or Podman)
+endif
+
+DC := $(DOCKER_COMPOSE)
 
 help: ## Show this help message
 	@echo 'Usage: make [target]'
+	@echo ''
+	@echo 'Using container runtime: $(DC)'
 	@echo ''
 	@echo 'Available targets:'
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
@@ -46,20 +62,14 @@ clean: ## Stop services and remove volumes (WARNING: deletes data!)
 		echo "Services stopped and volumes removed"; \
 	fi
 
-backup: ## Backup Strapi data
-	@mkdir -p backups
-	docker run --rm -v petstar-website_strapi-data:/data -v $$(pwd)/backups:/backup alpine tar czf /backup/strapi-backup-$$(date +%Y%m%d-%H%M%S).tar.gz /data
-	@echo "Backup created in docker/backups/ directory"
+backup: ## Backup Strapi data (use ../scripts/backup-strapi.sh for comprehensive backup)
+	@echo "Note: For comprehensive backups, use: cd .. && ./scripts/backup-strapi.sh"
+	@mkdir -p ../backups
+	@cd .. && ./scripts/backup-strapi.sh
 
-restore: ## Restore Strapi data (usage: make restore FILE=backups/strapi-backup-20251103-123456.tar.gz)
-	@if [ -z "$(FILE)" ]; then \
-		echo "Error: Please specify backup file. Usage: make restore FILE=backups/strapi-backup-20251103-123456.tar.gz"; \
-		exit 1; \
-	fi
-	$(DC) down
-	docker run --rm -v petstar-website_strapi-data:/data -v $$(pwd):/backup alpine tar xzf /backup/$(FILE) -C /
-	$(DC) up -d
-	@echo "Restored from $(FILE)"
+restore: ## Restore Strapi data (use ../scripts/restore-strapi.sh for interactive restore)
+	@echo "Note: For interactive restore, use: cd .. && ./scripts/restore-strapi.sh"
+	@cd .. && ./scripts/restore-strapi.sh
 
 status: ## Check health status of services
 	@echo "=== Container Status ==="
