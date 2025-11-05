@@ -1,7 +1,8 @@
 .PHONY: help up down restart logs logs-web logs-strapi ps build clean backup restore
 
 # Docker Compose command (we're in docker/ subdirectory)
-DC := docker-compose
+# DC := docker-compose
+DC := podman-compose
 
 help: ## Show this help message
 	@echo 'Usage: make [target]'

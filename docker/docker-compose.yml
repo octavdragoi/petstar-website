@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Static website web server
   web:
@@ -28,7 +26,7 @@ services:
       - "1337:1337"
     environment:
       - STRAPI_CORS_ENABLED=true
-      - STRAPI_CORS_ORIGIN=http://localhost:1337,http://localhost:8081,http://127.0.0.1:8081,https://petstar.ro
+      - STRAPI_CORS_ORIGIN=http://localhost:1337,http://localhost:8081,http://127.0.0.1:8081,https://petstar.ro,https://petstar-dash.ro
     volumes:
       - ../petstar-cms/src:/opt/app/src:z
       - ../petstar-cms/config:/opt/app/config:z
@@ -44,6 +42,16 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+
+
+  #  Cloudflare tunnel
+  cloudflared:
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    network_mode: "host"
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN} # stored in .env file
 
 networks:
   petstar-network:
