@@ -134,6 +134,20 @@ rm -rf "$CMS_DIR/database"
 rm -rf "$CMS_DIR/.tmp"
 print_info "Old database removed"
 
+# Step 7b: Pre-create directories with correct permissions (for Podman rootless)
+print_info "Pre-creating directories with correct permissions..."
+mkdir -p "$CMS_DIR/database/migrations"
+mkdir -p "$CMS_DIR/.tmp"
+mkdir -p "$CMS_DIR/public/uploads"
+mkdir -p "$CMS_DIR/.cache"
+
+# Set permissions to be writable by the container
+chmod -R 777 "$CMS_DIR/database"
+chmod -R 777 "$CMS_DIR/.tmp"
+chmod -R 777 "$CMS_DIR/public"
+chmod -R 777 "$CMS_DIR/.cache"
+print_info "Directories created with correct permissions"
+
 # Step 8: Remove node_modules and package-lock (optional, for clean rebuild)
 read -p "Do you want to remove node_modules for a clean rebuild? (y/N): " -n 1 -r
 echo
