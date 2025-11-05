@@ -109,6 +109,11 @@ cat > "$CMS_DIR/.env" << EOF
 HOST=0.0.0.0
 PORT=1337
 
+# Public URL Configuration
+# Change these to match your production domain
+URL=https://petstar-dash.ro
+SERVER_URL=https://petstar-dash.ro
+
 # Secrets - Generated on $TIMESTAMP
 APP_KEYS=$APP_KEYS
 API_TOKEN_SALT=$API_TOKEN_SALT

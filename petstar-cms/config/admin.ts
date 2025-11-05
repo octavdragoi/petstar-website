@@ -10,6 +10,9 @@ export default ({ env }) => ({
       salt: env('TRANSFER_TOKEN_SALT'),
     },
   },
+  url: env('URL', '/admin'),
+  serveAdminPanel: env.bool('SERVE_ADMIN', true),
+  autoOpen: false,
   secrets: {
     encryptionKey: env('ENCRYPTION_KEY'),
   },
