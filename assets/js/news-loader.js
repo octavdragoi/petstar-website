@@ -114,23 +114,31 @@ const NewsLoader = {
         const defaultImage = typeof PetStarConfig !== 'undefined' && PetStarConfig.news.defaultImage
             ? PetStarConfig.news.defaultImage
             : 'assets/images/news/default.jpg';
-        
+
         // Handle flat array (Strapi v5 format) - get first image
         if (Array.isArray(images) && images.length > 0) {
             const firstImage = images[0];
             if (firstImage?.url) {
-                const url = firstImage.url;
-                
-                // If URL is absolute, return as-is
+                let url = firstImage.url;
+
+                // Fix malformed absolute URLs (e.g., https://.domain.com)
+                if (url.startsWith('http') && url.includes('://.')) {
+                    console.warn('Malformed image URL detected:', url);
+                    // Extract the path portion and treat as relative
+                    url = url.replace(/^https?:\/\/[^/]*/, '');
+                }
+
+                // If URL is absolute and well-formed, return as-is
                 if (url.startsWith('http')) {
                     return url;
                 }
-                
+
                 // If relative, prepend Strapi URL
-                return `${this.apiUrl.replace('/api', '')}${url}`;
+                const baseUrl = this.apiUrl.replace('/api', '');
+                return `${baseUrl}${url}`;
             }
         }
-        
+
         return defaultImage;
     },
     
