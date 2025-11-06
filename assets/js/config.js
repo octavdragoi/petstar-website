@@ -38,13 +38,21 @@ window.PetStarConfig = PetStarConfig;
 // This will be called after news-loader.js is loaded
 function initializeNewsLoader() {
     if (typeof NewsLoader !== 'undefined') {
+        console.log('🔧 Initializing NewsLoader with config:', PetStarConfig.apiUrl);
         NewsLoader.setApiUrl(PetStarConfig.apiUrl);
         if (PetStarConfig.apiToken) {
             NewsLoader.setApiToken(PetStarConfig.apiToken);
         }
-        console.log('NewsLoader initialized with API:', NewsLoader.apiUrl);
+        console.log('✅ NewsLoader initialized. API URL:', NewsLoader.apiUrl);
+        console.log('✅ API Token set:', NewsLoader.apiToken ? 'Yes' : 'No');
+    } else {
+        console.warn('⚠️ NewsLoader not yet available');
     }
 }
 
 // Try to initialize immediately (in case news-loader.js is already loaded)
+console.log('📝 Config loaded. API URL:', PetStarConfig.apiUrl);
 initializeNewsLoader();
+
+// Also try after a short delay to ensure news-loader.js has loaded
+setTimeout(initializeNewsLoader, 100);

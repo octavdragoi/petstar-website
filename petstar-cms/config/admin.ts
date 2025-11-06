@@ -10,7 +10,7 @@ export default ({ env }) => ({
       salt: env('TRANSFER_TOKEN_SALT'),
     },
   },
-  url: env('URL', '/admin'),
+  url: '/admin',
   serveAdminPanel: env.bool('SERVE_ADMIN', true),
   autoOpen: false,
   host: env('HOST', '0.0.0.0'),
