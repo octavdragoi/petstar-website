@@ -8,7 +8,6 @@ const PetStarConfig = {
     // Development: 'http://localhost:1337/api'
     // Production: 'https://api.petstar.com/api'
     apiUrl: 'https://api.petstar-dash.ro/api',
-    // apiUrl: 'http://localhost:1337/api',
     
     // Strapi API Token (required for authenticated requests)
     // Get this from: Strapi Admin → Settings → API Tokens → Create new API Token
@@ -27,7 +26,8 @@ const PetStarConfig = {
         homepageLimit: 3,        // Number of articles on homepage
         listingPageLimit: 20,    // Number of articles on news listing page
         excerptLength: 120,      // Max length for article excerpts
-        defaultImage: 'assets/images/news/default.jpg'  // Default image when article has no featured image
+        defaultImage: 'assets/images/news/default.jpg',  // Default image when article has no featured image
+        defaultLanguage: 'ro'    // Default language for articles
     }
 };
 

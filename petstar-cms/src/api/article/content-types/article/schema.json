@@ -4,7 +4,8 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article"
+    "displayName": "Article",
+    "description": "News articles for PetStar website"
   },
   "options": {
     "draftAndPublish": true
@@ -21,8 +22,9 @@
       "required": true
     },
     "excerpt": {
-      "type": "string",
-      "maxLength": 200
+      "type": "text",
+      "required": true,
+      "maxLength": 300
     },
     "content": {
       "type": "blocks",
@@ -31,37 +33,30 @@
     "images": {
       "type": "media",
       "multiple": true,
+      "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "author": {
       "type": "string"
     },
     "category": {
-      "type": "enumeration",
-      "default": "Press Release",
-      "enum": [
-        "Press Release",
-        "Innovation",
-        "Sustainability",
-        "Company News"
-      ]
+      "type": "string",
+      "required": false
     },
     "featured": {
       "type": "boolean",
       "default": false
     },
-    "Language": {
+    "language": {
       "type": "enumeration",
-      "default": "ro",
       "enum": [
-        "en",
-        "ro"
-      ]
+        "ro",
+        "en"
+      ],
+      "default": "ro",
+      "required": true
     }
   }
 }

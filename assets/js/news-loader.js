@@ -27,24 +27,37 @@ const NewsLoader = {
      * Fetch all articles
      * @param {number} limit - Number of articles to fetch
      * @param {boolean} featured - Fetch only featured articles
+     * @param {string} language - Filter by language ('ro', 'en', or null for all)
      * @returns {Promise<Array>} Array of articles
      */
-    async getArticles(limit = null, featured = false) {
+    async getArticles(limit = null, featured = false, language = null) {
         // Use config defaults if not specified
         if (limit === null && typeof PetStarConfig !== 'undefined') {
             limit = PetStarConfig.news.homepageLimit;
         } else if (limit === null) {
             limit = 3; // Fallback if config not loaded
         }
+
+        // Use default language from config if not specified
+        if (language === null && typeof PetStarConfig !== 'undefined') {
+            language = PetStarConfig.news.defaultLanguage || 'ro';
+        } else if (language === null) {
+            language = 'ro'; // Fallback
+        }
+
         try {
             const params = new URLSearchParams({
                 'pagination[limit]': limit,
                 'sort[0]': 'publishedAt:desc',
                 'populate': '*'
             });
-            
+
             if (featured) {
                 params.append('filters[featured][$eq]', 'true');
+            }
+
+            if (language) {
+                params.append('filters[language][$eq]', language);
             }
             
             const response = await fetch(`${this.apiUrl}/articles?${params}`, {
