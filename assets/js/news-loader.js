@@ -120,25 +120,36 @@ const NewsLoader = {
             const firstImage = images[0];
             if (firstImage?.url) {
                 let url = firstImage.url;
+                console.log('📸 Original image URL from API:', url);
 
                 // Fix malformed absolute URLs (e.g., https://.domain.com)
                 if (url.startsWith('http') && url.includes('://.')) {
-                    console.warn('Malformed image URL detected:', url);
+                    console.warn('⚠️ Malformed image URL detected:', url);
                     // Extract the path portion and treat as relative
                     url = url.replace(/^https?:\/\/[^/]*/, '');
+                    console.log('🔧 Fixed to relative URL:', url);
                 }
 
                 // If URL is absolute and well-formed, return as-is
                 if (url.startsWith('http')) {
+                    console.log('✅ Using absolute URL as-is:', url);
                     return url;
                 }
 
                 // If relative, prepend Strapi URL
-                const baseUrl = this.apiUrl.replace('/api', '');
-                return `${baseUrl}${url}`;
+                const baseUrl = this.apiUrl.replace(/\/api$/, '');
+                const finalUrl = `${baseUrl}${url}`;
+                console.log('🔗 Constructed URL:', {
+                    apiUrl: this.apiUrl,
+                    baseUrl: baseUrl,
+                    relativeUrl: url,
+                    finalUrl: finalUrl
+                });
+                return finalUrl;
             }
         }
 
+        console.log('⚠️ No valid image found, using default:', defaultImage);
         return defaultImage;
     },
     
