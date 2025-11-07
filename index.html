@@ -53,7 +53,7 @@
          <div class="hamburger_top d-flex align-items-center justify-content-between">
             <div class="hamburger_logo">
                <a href="index.html" class="mobile_logo">
-                  <img src="assets/images/logo/petstar-logo.png" alt="PetStar" />
+                  <img src="assets/images/logos/logo-main.webp" alt="PetStar" />
                </a>
             </div>
             <div class="hamburger_close">
@@ -89,29 +89,29 @@
    <!-- ======================================
       HEADER SECTION - Section 1
    ====================================== -->
-   <div id="header-section"></div>
+   <!--#include virtual="/sections/section-01-header.html" -->
 
    <main id="primary" class="site-main">
 
       <!-- ======================================
          HERO SECTION - Section 2
       ====================================== -->
-      <div id="hero-section"></div>
+      <!--#include virtual="/sections/section-02-hero.html" -->
 
       <!-- ======================================
          FEATURES SECTION - Section 2B (Dummy for curved transition)
       ====================================== -->
-      <div id="features-section"></div>
+      <!--#include virtual="/sections/section-02b-features.html" -->
 
       <!-- ======================================
          STORY SECTION - Section 3
       ====================================== -->
-      <div id="story-section"></div>
+      <!--#include virtual="/sections/section-03-story.html" -->
 
       <!-- ======================================
          TEAMS SECTION - Section 4
       ====================================== -->
-      <div id="teams-section"></div>
+      <!--#include virtual="/sections/section-04-teams.html" -->
 
       <!-- ======================================
          PRODUCTS SECTION - Section 5
@@ -141,7 +141,7 @@
       <!-- ======================================
          NEWS SECTION - Section 10
       ====================================== -->
-      <div id="news-section"></div>
+      <!--#include virtual="/sections/section-10-news.html" -->
 
       <!-- ======================================
          CONTACT CTA SECTION - Section 11
@@ -153,13 +153,14 @@
    <!-- ======================================
       FOOTER SECTION - Section 12
    ====================================== -->
-   <div id="footer-section"></div>
+   <!--#include virtual="/sections/section-12-footer.html" -->
 
    <!-- JS here -->
    <script src="assets/js/jquery.min.js"></script>
    <script src="assets/js/bootstrap.bundle.min.js"></script>
    <script src="assets/js/gsap.min.js"></script>
    <script src="assets/js/gsap-scroll-trigger.min.js"></script>
+   <script src="assets/js/gsap-scroll-to-plugin.min.js"></script>
    <script src="assets/js/gsap-split-text.min.js"></script>
    <script src="assets/js/lenis.min.js"></script>
    <script src="assets/js/swiper.min.js"></script>
@@ -174,101 +175,20 @@
    <script src="assets/js/config.js"></script>
    <script src="assets/js/news-loader.js"></script>
 
-   <!-- Load Section Includes -->
+   <!-- Initialize NewsLoader and refresh animations -->
    <script>
       $(document).ready(function() {
-         // Load header section
-         $('#header-section').load('sections/section-01-header.html');
-         
-         // Load hero section and initialize GSAP after it loads
-         $('#hero-section').load('sections/section-02-hero.html', function() {
-            // Initialize hero parallax effect after hero section is loaded
-            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-               ScrollTrigger.matchMedia({
-                  "(min-width: 992px)": function () {
-                     const hero = document.querySelector(".heroStack .tj-hero-section");
-                     if (hero) {
-                        gsap.to(hero, {
-                           y: "30%",
-                           opacity: 0,
-                           ease: "none",
-                           scrollTrigger: {
-                              trigger: hero,
-                              start: "top top",
-                              end: "bottom top",
-                              scrub: true,
-                           },
-                        });
-                     }
-                  }
-               });
-            }
-         });
-         
-         // Load features section (dummy for curved transition)
-         $('#features-section').load('sections/section-02b-features.html');
-         
-         // Load story section and initialize border radius animation
-         $('#story-section').load('sections/section-03-story.html', function() {
-            // Initialize about section border radius animation
-            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-               gsap.set(".tj-about-section", {
-                  "--br-bottom-left": "0px",
-               });
-               gsap.to(".tj-about-section", {
-                  "--br-bottom-left": "410px",
-                  ease: "power3.out",
-                  scrollTrigger: {
-                     trigger: ".tj-about-section",
-                     start: "bottom 120%",
-                     end: "bottom 50%",
-                     scrub: 0.8,
-                  },
-               });
-            }
-         });
+         // Initialize NewsLoader - sections are already in DOM via SSI
+         if (typeof NewsLoader !== 'undefined') {
+            NewsLoader.renderNewsSection('news-container');
+         }
+      });
 
-         // Load teams section and refresh ScrollTrigger
-         $('#teams-section').load('sections/section-04-teams.html', function() {
-            // After DOM is loaded, initialize the service stacking animation
-            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-               let device_width = window.innerWidth;
-               const serviceStack = gsap.utils.toArray(".service-stack");
-               if (serviceStack.length > 0) {
-                  if (device_width > 991) {
-                     serviceStack.forEach(item => {
-                        gsap.to(item, {
-                           opacity: 0,
-                           scale: 0.9,
-                           y: 50,
-                           scrollTrigger: {
-                              trigger: item,
-                              scrub: true,
-                              start: "top top",
-                              pin: true,
-                              pinSpacing: false,
-                              markers: false,
-                           },
-                        });
-                     });
-                  }
-               }
-               // Refresh all ScrollTriggers to recalculate positions
-               ScrollTrigger.refresh();
-            }
-         });
-
-         // Load news section and fetch articles
-         $('#news-section').load('sections/section-10-news.html', function() {
-            // Load news articles after section is loaded
-            if (typeof NewsLoader !== 'undefined') {
-               NewsLoader.renderNewsSection('news-container');
-            }
+      // Refresh ScrollTrigger after everything (including images) loads
+      $(window).on('load', function() {
+         if (typeof ScrollTrigger !== 'undefined') {
             ScrollTrigger.refresh();
-         });
-
-         // Load footer section
-         $('#footer-section').load('sections/section-12-footer.html');
+         }
       });
    </script>
 
