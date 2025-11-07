@@ -38,13 +38,6 @@ const NewsLoader = {
             limit = 3; // Fallback if config not loaded
         }
 
-        // Use default language from config if not specified
-        if (language === null && typeof PetStarConfig !== 'undefined') {
-            language = PetStarConfig.news.defaultLanguage || 'ro';
-        } else if (language === null) {
-            language = 'ro'; // Fallback
-        }
-
         try {
             const params = new URLSearchParams({
                 'pagination[limit]': limit,
@@ -458,7 +451,7 @@ const NewsLoader = {
         const articlesHTML = articles.map((article, index) => {
             return this.renderArticleCard(article, index, {
                 excerptLength: 200,
-                showComments: true,
+                showComments: false,
                 showFullDate: false
             });
         }).join('');
@@ -600,9 +593,11 @@ const NewsLoader = {
      */
     renderArticlePost(article) {
         const { title, content, publishedAt, author, images, category, tags } = article;
-        const imageUrl = this.getImageUrl(images);
         const formattedDate = this.formatDate(publishedAt);
         const htmlContent = this.convertContentToHtml(content);
+
+        // Create date object for image date badge
+        const dateObj = publishedAt ? new Date(publishedAt) : null;
 
         // Format category
         const categoryLabel = typeof category === 'string'
@@ -618,10 +613,13 @@ const NewsLoader = {
             `<a href="news.html">${tag}</a>`
         ).join('') : '<a href="news.html">PET Recycling</a><a href="news.html">Sustainability</a>';
 
+        // Render images using renderImages function (supports multiple images with slider)
+        const imagesHTML = this.renderImages(images, title, dateObj);
+
         return `
             <article class="tj-post-single-post">
-                <div class="tj-post-thumb hover:shine wow fadeInUp" data-wow-delay="0.1s">
-                    <img src="${imageUrl}" alt="${title || 'News image'}">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    ${imagesHTML}
                 </div>
                 <h3 class="tj-post-title text-anim">
                     ${title || 'Untitled Article'}
@@ -763,6 +761,9 @@ const NewsLoader = {
         if (typeof WOW !== 'undefined') {
             new WOW().init();
         }
+
+        // Initialize Swiper sliders for articles with multiple images
+        this.initializeSliders();
 
         // Load recent posts in sidebar
         this.renderRecentPosts();

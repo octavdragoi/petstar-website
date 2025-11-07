@@ -174,13 +174,14 @@
    <script src="assets/js/petstar.js"></script>
    <script src="assets/js/config.js"></script>
    <script src="assets/js/news-loader.js"></script>
+   <script src="assets/js/blog-loader.js"></script>
 
-   <!-- Initialize NewsLoader and refresh animations -->
+   <!-- Initialize BlogLoader for homepage news section -->
    <script>
       $(document).ready(function() {
-         // Initialize NewsLoader - sections are already in DOM via SSI
-         if (typeof NewsLoader !== 'undefined') {
-            NewsLoader.renderNewsSection('news-container');
+         // Initialize BlogLoader for homepage (blog template styling)
+         if (typeof BlogLoader !== 'undefined') {
+            BlogLoader.renderBlogSection('blog-container', 4);
          }
 
          // Initialize Story Section Carousel

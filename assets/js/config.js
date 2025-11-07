@@ -13,7 +13,7 @@ const PetStarConfig = {
     // Get this from: Strapi Admin → Settings → API Tokens → Create new API Token
     // Token type: Read-only (recommended) or Full access
     // Leave empty if API is public (not recommended for production)
-    apiToken: 'cc6fa8b6888081c1bbf0813ee324d880ed08c256609703df8fe5eb670854bd4ad53d718874a26ec50cea7c68c8c6aaa55011cd8949f724975d074195682eaf0040db2d12deb48b9312f936f1d9638c233d99bbade480f2c7d1453fd7a5885a3db47b85fc9ff31b822e8298d57eca1927eb23a29af2b57e0dffa707bb0124e7b9', // Add your token here: 'your-strapi-api-token-here'
+    apiToken: '0885cb94aea2b7c4f3404f4fe31a25082aaa02d408a65cd8c338b41a731ba2568c5e39587d24b1b7cf948c9e247c007189cbcdb14e962d096b9703ce85322da5cf0a68bbc111c565a3d3f0768bcc10417115d68ad0dd63c0fbcbd8e443c6ef41761bef6ed379ba8c416936b312089066ccfc742d7e0acd5c991a6b2bd69dbb2b', // Add your token here: 'your-strapi-api-token-here'
     
     // Default language
     defaultLanguage: 'ro',

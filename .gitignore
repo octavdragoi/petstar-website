@@ -83,3 +83,4 @@ tests/
 *.spec.js
 
 cached-solvior/**
+**/petstar-foto/**

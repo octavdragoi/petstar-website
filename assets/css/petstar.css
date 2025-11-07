@@ -37,8 +37,9 @@
    HERO & FEATURES SPACING ADJUSTMENTS
    - Increase hero bottom padding to prevent curve overlap
    - Reduce features section height (it's just for the curve)
+   - Increase hero image height so it extends below viewport and slides under next section
 ====================================== */
-.tj-hero-section {
+/* .tj-hero-section {
   padding-bottom: 80px;
 }
 
@@ -52,7 +53,7 @@
   .tj-hero-section {
     padding-bottom: 60px;
   }
-}
+} */
 
 /* Reduce dummy features section height */
 #features .tj-feature-section-wrap {
