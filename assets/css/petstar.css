@@ -73,3 +73,125 @@
     padding-bottom: 20px;
   }
 }
+
+/* ======================================
+   STORY SECTION CAROUSEL
+   Carousel positioned as background shape (replaces about-shape-1 image)
+====================================== */
+.about-shape-1 .story-carousel-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-shape-1 .swiper-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-shape-1 .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Hover shine effect */
+.about-shape-1 .swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-shape-1 .swiper-slide:hover::before {
+  left: 100%;
+}
+
+.about-shape-1 .swiper-slide:hover img {
+  transform: scale(1.05);
+}
+
+/* Pagination dots styling - breakpoint-based positioning matching blob image scaling */
+.story-carousel-pagination {
+  position: absolute !important;
+  top: auto !important;
+  left: 57% !important;
+  bottom: 55px !important; /* Default for >1600px: blob height 676px, positioned ~15.5% from bottom */
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  text-align: center;
+  z-index: 10;
+  width: auto !important;
+}
+
+/* Matches blob breakpoint: 1400-1599px (max-width: 660px) */
+@media (max-width: 1599px) {
+  .story-carousel-pagination {
+    bottom: 85px !important;
+  }
+}
+
+/* Matches blob breakpoint: 1200-1399px (max-width: 565px) */
+@media (max-width: 1399px) {
+  .story-carousel-pagination {
+    bottom: 105px !important;
+  }
+}
+
+/* Matches blob breakpoint: 992-1199px (max-width: 475px) */
+@media (max-width: 1199px) {
+  .story-carousel-pagination {
+    bottom: 145px !important;
+  }
+}
+
+/* Tablet size adjustments */
+@media (max-width: 991px) {
+  .story-carousel-pagination {
+    bottom: 100px !important;
+  }
+}
+
+/* Mobile adjustments - blob is hidden <768px, but keeping for safety */
+@media (max-width: 767px) {
+  .story-carousel-pagination {
+    bottom: 100px !important;
+  }
+}
+
+.story-carousel-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  margin: 0 6px;
+  transition: all 0.3s ease;
+}
+
+.story-carousel-pagination .swiper-pagination-bullet-active {
+  background: var(--tj-color-theme-primary);
+  width: 30px;
+  border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .story-carousel-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
+
+  .story-carousel-pagination .swiper-pagination-bullet-active {
+    width: 24px;
+  }
+}
