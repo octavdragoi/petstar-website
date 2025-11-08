@@ -39,21 +39,6 @@
    - Reduce features section height (it's just for the curve)
    - Increase hero image height so it extends below viewport and slides under next section
 ====================================== */
-/* .tj-hero-section {
-  padding-bottom: 80px;
-}
-
-@media (max-width: 991px) {
-  .tj-hero-section {
-    padding-bottom: 70px;
-  }
-}
-
-@media (max-width: 767px) {
-  .tj-hero-section {
-    padding-bottom: 60px;
-  }
-} */
 
 /* Reduce dummy features section height */
 #features .tj-feature-section-wrap {
