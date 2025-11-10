@@ -381,3 +381,71 @@
   background: transparent !important;
   white-space: nowrap !important;
 }
+
+/* ======================================
+   SMI POLICY PAGE - Full Width Accordion
+   - Override template's max-width: 553px to use full container width
+====================================== */
+.h6-insight_accordion.h10-about-accordion {
+  max-width: 100% !important;
+}
+
+/* Style improvements for policy content */
+.h6-insight_accordion.h10-about-accordion .accordion-body {
+  line-height: 1.8;
+}
+
+.h6-insight_accordion.h10-about-accordion .accordion-body ul.policy-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.h6-insight_accordion.h10-about-accordion .accordion-body ul.policy-list > li {
+  margin-bottom: 20px;
+  padding-left: 0;
+}
+
+.h6-insight_accordion.h10-about-accordion .accordion-body ul.policy-list > li > ul {
+  list-style: disc;
+  padding-left: 25px;
+  margin-top: 10px;
+}
+
+.h6-insight_accordion.h10-about-accordion .accordion-body ul.policy-list > li > ul > li {
+  margin-bottom: 8px;
+}
+
+.h6-insight_accordion.h10-about-accordion .accordion-body .policy-footer {
+  border-top: 1px solid var(--tj-color-border-2);
+  padding-top: 20px;
+  font-style: italic;
+}
+
+.smi-additional-info .alert {
+  border-left: 4px solid var(--tj-color-theme-primary);
+  background-color: rgba(0, 128, 128, 0.05);
+}
+
+.smi-additional-info .alert h5 {
+  color: var(--tj-color-theme-primary);
+  margin-bottom: 15px;
+}
+
+.smi-additional-info .alert ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.smi-additional-info .alert ul li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.smi-additional-info .alert ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--tj-color-theme-primary);
+  font-weight: bold;
+}
