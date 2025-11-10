@@ -27,40 +27,8 @@
    <link rel="stylesheet" href="assets/css/main.css" />
    <link rel="stylesheet" href="assets/css/petstar.css" />
 
-   <!-- Prevent FOUC by making body visible only after stylesheets load -->
-   <script>
-      document.addEventListener('DOMContentLoaded', function() {
-         // Check if all stylesheets are loaded
-         var checkStylesheets = function() {
-            var sheets = document.styleSheets;
-            var allLoaded = true;
-            for (var i = 0; i < sheets.length; i++) {
-               try {
-                  // Try to access cssRules to verify stylesheet is loaded
-                  if (!sheets[i].cssRules) {
-                     allLoaded = false;
-                     break;
-                  }
-               } catch(e) {
-                  // External stylesheet may throw error, but it's likely loaded
-                  continue;
-               }
-            }
-            if (allLoaded) {
-               document.body.style.visibility = 'visible';
-            } else {
-               // If not all loaded, check again in 10ms
-               setTimeout(checkStylesheets, 10);
-            }
-         };
-         checkStylesheets();
-      });
-
-      // Fallback: ensure body is visible after 100ms even if check fails
-      setTimeout(function() {
-         document.body.style.visibility = 'visible';
-      }, 100);
-   </script>
+   <!-- Prevent FOUC (Flash of Unstyled Content) -->
+   <script src="assets/js/fouc-prevention.js"></script>
 </head>
 
 <body style="visibility: hidden;">
