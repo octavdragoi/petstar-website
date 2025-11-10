@@ -202,15 +202,15 @@ Only modify colors/fonts in `petstar.css`:
 - Section 2B: Features (dummy for curved transition)
 - Section 3: Story (border-radius animation)
 - Section 4: Teams (card stacking animation)
+- Section 7: Portfolio (auto-scrolling brand slider)
+- Section 10: News (dynamic CMS integration)
 - Section 12: Footer (4-column layout)
 
 ### Pending Sections ⏳
 - Section 5: Products
 - Section 6: Accreditations
-- Section 7: Portfolio
 - Section 8: Virtual Tour
 - Section 9: Statistics
-- Section 10: News
 - Section 11: Contact CTA
 
 ---
