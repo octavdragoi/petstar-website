@@ -13,16 +13,32 @@
 :root {
   /* Primary Brand Color - Update to PetStar blue */
   --tj-color-theme-primary: #008080;
-  
+
   /* Secondary/Dark Color */
   --tj-color-theme-secondary: #051229;
-  
+
   /* Accent Color (for highlights, success states) */
   --tj-color-accent: #00c853;
-  
+
   /* Keep these from template or adjust as needed */
   --tj-color-heading-primary: #051229;
   --tj-color-text-body: #364052;
+
+  /* ========================================
+     SECTION BACKGROUND COLORS
+     ======================================== */
+
+  /* Light blue background - Used by:
+     - Story Section (Section 3)
+     - Other template sections with colored backgrounds
+     Default: #e1e8f0 (light blue) */
+  --tj-color-theme-bg: #e1e8f0;
+
+  /* Off-white background - Used by:
+     - News Section (Section 10)
+     - Blog cards and other light sections
+     Default: #f7f7f7 (off-white) */
+  --tj-color-common-white: #f7f7f7;
 }
 
 /* ======================================
@@ -129,14 +145,14 @@
 /* Matches blob breakpoint: 1200-1399px (max-width: 565px) */
 @media (max-width: 1399px) {
   .story-carousel-pagination {
-    bottom: 105px !important;
+    bottom: 115px !important;
   }
 }
 
 /* Matches blob breakpoint: 992-1199px (max-width: 475px) */
 @media (max-width: 1199px) {
   .story-carousel-pagination {
-    bottom: 145px !important;
+    bottom: 150px !important;
   }
 }
 
@@ -179,5 +195,50 @@
 
   .story-carousel-pagination .swiper-pagination-bullet-active {
     width: 24px;
+  }
+}
+
+/* ======================================
+   TEAMS SECTION - Wider Service Card Images
+   - Increase image width from 645px to 800px
+   - Reduce content padding to prevent overflow
+   - Adjust text max-width to maintain balance
+====================================== */
+.service-item .service-images {
+  max-width: 800px; /* Increased from 645px */
+  min-height: 350px; /* Set explicit height to prevent zoom variation */
+  height: auto; /* Override template's height: 100% */
+}
+
+.service-item .service-content {
+  padding: 60px 15px 60px 40px; /* Reduced left padding from 65px to 40px */
+}
+
+.service-item .service-content .service-text {
+  max-width: 320px; /* Reduced from 365px to accommodate wider image */
+}
+
+/* Responsive breakpoints - adjust proportionally */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .service-item .service-images {
+    max-width: 700px; /* Increased from 550px */
+  }
+
+  .service-item .service-content .service-text {
+    max-width: 300px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .service-item .service-images {
+    max-width: 600px; /* Increased from 500px */
+  }
+
+  .service-item .service-content {
+    padding: 60px 15px 60px 30px;
+  }
+
+  .service-item .service-content .service-text {
+    max-width: 280px;
   }
 }

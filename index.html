@@ -26,9 +26,44 @@
    <link rel="stylesheet" href="assets/css/meanmenu.css" />
    <link rel="stylesheet" href="assets/css/main.css" />
    <link rel="stylesheet" href="assets/css/petstar.css" />
+
+   <!-- Prevent FOUC by making body visible only after stylesheets load -->
+   <script>
+      document.addEventListener('DOMContentLoaded', function() {
+         // Check if all stylesheets are loaded
+         var checkStylesheets = function() {
+            var sheets = document.styleSheets;
+            var allLoaded = true;
+            for (var i = 0; i < sheets.length; i++) {
+               try {
+                  // Try to access cssRules to verify stylesheet is loaded
+                  if (!sheets[i].cssRules) {
+                     allLoaded = false;
+                     break;
+                  }
+               } catch(e) {
+                  // External stylesheet may throw error, but it's likely loaded
+                  continue;
+               }
+            }
+            if (allLoaded) {
+               document.body.style.visibility = 'visible';
+            } else {
+               // If not all loaded, check again in 10ms
+               setTimeout(checkStylesheets, 10);
+            }
+         };
+         checkStylesheets();
+      });
+
+      // Fallback: ensure body is visible after 100ms even if check fails
+      setTimeout(function() {
+         document.body.style.visibility = 'visible';
+      }, 100);
+   </script>
 </head>
 
-<body>
+<body style="visibility: hidden;">
 
    <!-- Custom Cursor -->
    <div class="mouseCursor cursor-outer"></div>
@@ -178,7 +213,30 @@
 
    <!-- Initialize BlogLoader for homepage news section -->
    <script>
-      $(document).ready(function() {
+      // Wait for both DOM ready AND stylesheets loaded before initializing
+      var stylesLoaded = false;
+      var domReady = false;
+
+      // Check when stylesheets are loaded
+      if (document.readyState === 'loading') {
+         document.addEventListener('DOMContentLoaded', function() {
+            domReady = true;
+            initializeWhenReady();
+         });
+      } else {
+         domReady = true;
+      }
+
+      // Use window.load as a reliable signal that CSS is ready
+      window.addEventListener('load', function() {
+         stylesLoaded = true;
+         initializeWhenReady();
+      });
+
+      // Initialize only when both conditions are met
+      function initializeWhenReady() {
+         if (!stylesLoaded) return; // Wait for styles
+
          // Initialize BlogLoader for homepage (blog template styling)
          if (typeof BlogLoader !== 'undefined') {
             BlogLoader.renderBlogSection('blog-container', 4);
@@ -186,29 +244,32 @@
 
          // Initialize Story Section Carousel
          if (typeof Swiper !== 'undefined') {
-            new Swiper('.story-carousel-slider', {
-               slidesPerView: 1,
-               spaceBetween: 0,
-               loop: true,
-               speed: 800,
-               autoplay: {
-                  delay: 2000,
-                  disableOnInteraction: false
-               },
-               pagination: {
-                  el: '.story-carousel-pagination',
-                  clickable: true
-               }
-            });
+            var storyCarousel = document.querySelector('.story-carousel-slider');
+            if (storyCarousel) {
+               new Swiper('.story-carousel-slider', {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                  loop: true,
+                  speed: 800,
+                  autoplay: {
+                     delay: 2000,
+                     disableOnInteraction: false
+                  },
+                  pagination: {
+                     el: '.story-carousel-pagination',
+                     clickable: true
+                  }
+               });
+            }
          }
-      });
 
-      // Refresh ScrollTrigger after everything (including images) loads
-      $(window).on('load', function() {
+         // Refresh ScrollTrigger after everything is initialized
          if (typeof ScrollTrigger !== 'undefined') {
-            ScrollTrigger.refresh();
+            setTimeout(function() {
+               ScrollTrigger.refresh();
+            }, 100);
          }
-      });
+      }
    </script>
 
 </body>
