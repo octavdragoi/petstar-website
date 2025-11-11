@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Us - PetStar</title>
+    <meta name="description" content="Get in touch with PetStar - Romania's leading PET preform manufacturer and recycling facility. Visit us in Slobozia, Ialomița.">
+
+<!--#include virtual="assets/components/head-common.html" -->
+</head>
+<body style="opacity: 0; transition: opacity 0.3s ease-in;">
+<!--#include virtual="assets/components/body-start.html" -->
+
+<!--#include virtual="sections/section-01-header.html" -->
+
+    <!-- Page Header -->
+    <section class="tj-page-header" data-bg-image="assets/images/petstar-processed/contact-header.avif">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tj-page-header-content text-center">
+                        <h1 class="tj-page-title text-anim">{{t contact.heading}}</h1>
+                        <div class="tj-page-link wow fadeInUp" data-wow-delay="0.1s">
+                            <span>
+                                <a href="index.html">
+                                    <span>Home</span>
+                                </a>
+                            </span>
+                            <span>/</span>
+                            <span>
+                                <span>Contact</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="tj-contact-area section-space">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="sec-heading text-center">
+                        <span class="sub-title wow fadeInUp" data-wow-delay="0.1s">{{t contact.subtitle}}</span>
+                        <h2 class="sec-title text-anim">{{t contact.info_heading}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row rg-30">
+                <div class="col-xl-3 col-lg-6 col-sm-6">
+                    <div class="contact-item style-2 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="contact-icon">
+                            <i class="tji-email"></i>
+                        </div>
+                        <h3 class="contact-title">{{t contact.email_title}}</h3>
+                        <ul class="contact-list">
+                            <li><a href="mailto:office@petstar.ro">office@petstar.ro</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-sm-6">
+                    <div class="contact-item style-2 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="contact-icon">
+                            <i class="tji-phone"></i>
+                        </div>
+                        <h3 class="contact-title">{{t contact.phone_title}}</h3>
+                        <ul class="contact-list">
+                            <li><a href="tel:+40243232855">+40 243 232 855</a></li>
+                            <li><a href="tel:+40243236553">+40 243 236 553</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-sm-6">
+                    <div class="contact-item style-2 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="contact-icon">
+                            <i class="tji-location"></i>
+                        </div>
+                        <h3 class="contact-title">{{t contact.location_title}}</h3>
+                        <p>DN 2A Km 64, 920051, Slobozia, Ialomița, România</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-sm-6">
+                    <div class="contact-item style-2 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="contact-icon">
+                            <i class="tji-clock"></i>
+                        </div>
+                        <h3 class="contact-title">{{t contact.hours_title}}</h3>
+                        <ul class="contact-list">
+                            <li>{{t contact.hours_monday_saturday}}</li>
+                            <li>{{t contact.hours_time}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Map Section -->
+    <section class="tj-contact-area section-bottom-space">
+        <div class="container">
+            <div class="row rg-50">
+                <!-- Contact Form -->
+                <div class="col-lg-6">
+                    <div class="contact-form-one style-2 wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="title text-anim">{{t contact.form_heading}}</h3>
+                        <form action="#" id="contact-form">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-input">
+                                        <input type="text" id="name" name="name" placeholder="{{t contact.form_name}}" required />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-input">
+                                        <input type="email" id="email" name="email" placeholder="{{t contact.form_email}}" required />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-input">
+                                        <input type="tel" id="phone" name="phone" placeholder="{{t contact.form_phone}}" required />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-input">
+                                        <div class="tj-nice-select-box">
+                                            <div class="tj-select">
+                                                <select class="nice-select" name="subject">
+                                                    <option>{{t contact.form_subject_default}}</option>
+                                                    <option value="preforms">{{t contact.form_subject_preforms}}</option>
+                                                    <option value="recycling">{{t contact.form_subject_recycling}}</option>
+                                                    <option value="partnership">{{t contact.form_subject_partnership}}</option>
+                                                    <option value="general">{{t contact.form_subject_general}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-input input-textarea">
+                                        <textarea id="message" name="message" placeholder="{{t contact.form_message}}"></textarea>
+                                    </div>
+                                </div>
+                                <div class="submit-button">
+                                    <button type="submit" class="tj-primary-btn">
+                                        <span class="btn_inner">
+                                            <span class="btn_icon">
+                                                <span>
+                                                    <i class="tji-arrow-right"></i>
+                                                    <i class="tji-arrow-right"></i>
+                                                </span>
+                                            </span>
+                                            <span class="btn_text">
+                                                <span>{{t contact.form_submit}}</span>
+                                            </span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Google Map -->
+                <div class="col-lg-6">
+                    <div class="google-map wow fadeInUp" data-wow-delay="0.3s">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11356.912!2d27.337863!3d44.564047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f10!3m3!1m2!1s0x0%3A0x0!2zNDTCsDMzJzUwLjYiTiAyN8KwMjAnMzQuMyJF!5e0!3m2!1sen!2sro!4v1642025261462!5m2!1sen!2sro"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            title="PetStar Location Map"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="tj-cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-wrapper">
+                        <div class="cta-title">
+                            <h2 class="title text-anim">{{t contact.cta_heading}}</h2>
+                        </div>
+                        <div class="cta-button wow fadeInUp" data-wow-delay="0.1s">
+                            <a href="https://www.facebook.com/petstarholding" target="_blank" rel="noopener noreferrer" class="tj-primary-btn white-btn">
+                                <span class="btn_inner">
+                                    <span class="btn_icon">
+                                        <span>
+                                            <i class="tji-arrow-right"></i>
+                                            <i class="tji-arrow-right"></i>
+                                        </span>
+                                    </span>
+                                    <span class="btn_text">
+                                        <span>{{t contact.cta_button}}</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img class="cta-shape-1" src="assets/images/shapes/cta-shapes-1.png" alt="Shapes">
+        <img class="cta-shape-2" src="assets/images/shapes/cta-shapes-2.png" alt="Shapes">
+    </section>
+
+<!--#include virtual="sections/section-12-footer.html" -->
+
+<!--#include virtual="assets/components/body-end.html" -->
+
+    <script>
+        $(document).ready(function() {
+            // Highlight active menu item
+            $('.header-menu ul li a').each(function() {
+                if ($(this).attr('href') === 'contact.html') {
+                    $(this).parent().addClass('active');
+                }
+            });
+
+            // Prevent form submission for now (no backend handler yet)
+            $('#contact-form').on('submit', function(e) {
+                e.preventDefault();
+                // TODO: Add form submission handler
+                console.log('Form submitted');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -130,22 +130,23 @@
   transition: transform 0.4s ease;
 }
 
-/* Hover shine effect */
+/* Hover shine effect - Enhanced to match global shine animation */
 .about-shape-1 .swiper-slide::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
+  left: -140%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.6s ease;
+  background: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.6) 100%);
+  transform: skewX(-25deg);
+  transition: left 1.5s ease;
   z-index: 1;
   pointer-events: none;
 }
 
 .about-shape-1 .swiper-slide:hover::before {
-  left: 100%;
+  left: 250%;
 }
 
 .about-shape-1 .swiper-slide:hover img {
@@ -477,8 +478,16 @@
 .h9-process,
 .tj-post-area,
 .h10-about-section,
-.tj-page-header {
+.tj-page-header,
+.tj-contact-area {
   background-color: var(--tj-color-common-white);
+}
+
+/* ======================================
+   CONTACT PAGE - Equal height cards
+====================================== */
+.tj-contact-area .contact-item {
+  min-height: 320px;
 }
 
 /* Page sections that should have white backgrounds */
