@@ -10,7 +10,7 @@
 <!--#include virtual="assets/components/head-common.html" -->
 </head>
 
-<body style="visibility: hidden;">
+<body style="opacity: 0; transition: opacity 0.3s ease-in;">
 
    <!-- Custom Cursor -->
    <div class="mouseCursor cursor-outer"></div>
@@ -162,6 +162,21 @@
       function initializeWhenReady() {
          if (!stylesLoaded) return; // Wait for styles
 
+         // Remove WOW animations from elements already in viewport to prevent double-animation
+         // This prevents flickering on hero and story sections
+         if (typeof WOW !== 'undefined') {
+            var viewportHeight = window.innerHeight;
+            document.querySelectorAll('.wow').forEach(function(element) {
+               var rect = element.getBoundingClientRect();
+               // If element is in initial viewport (top is above fold)
+               if (rect.top < viewportHeight * 0.8) {
+                  element.classList.remove('wow');
+                  element.style.visibility = 'visible';
+                  element.style.animationName = 'none';
+               }
+            });
+         }
+
          // Initialize BlogLoader for homepage (blog template styling)
          if (typeof BlogLoader !== 'undefined') {
             BlogLoader.renderBlogSection('blog-container', 4);
@@ -186,6 +201,42 @@
                   }
                });
             }
+         }
+
+         // Initialize Odometers with Intersection Observer for accurate visibility detection
+         if ($(".odometer").length > 0) {
+            // Use Intersection Observer for more accurate detection
+            var odometerObserver = new IntersectionObserver(function(entries) {
+               entries.forEach(function(entry) {
+                  // Only trigger when element is actually visible (50% in viewport)
+                  if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                     var $element = $(entry.target);
+
+                     // Check if already triggered
+                     if (!$element.data('odometer-triggered')) {
+                        $element.data('odometer-triggered', true);
+
+                        var countNumber = $element.attr("data-count");
+
+                        // Wait a bit to ensure WOW animations are complete
+                        setTimeout(function() {
+                           $element.html(countNumber);
+                        }, 300);
+
+                        // Stop observing this element
+                        odometerObserver.unobserve(entry.target);
+                     }
+                  }
+               });
+            }, {
+               threshold: 0.5,  // Trigger when 50% of element is visible
+               rootMargin: '0px'  // No margin adjustment
+            });
+
+            // Observe all odometer elements
+            $(".odometer").each(function() {
+               odometerObserver.observe(this);
+            });
          }
 
          // Refresh ScrollTrigger after everything is initialized

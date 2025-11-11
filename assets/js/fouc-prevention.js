@@ -32,7 +32,7 @@
         }
 
         if (allLoaded) {
-            document.body.style.visibility = 'visible';
+            document.body.style.opacity = '1';
         } else {
             // If not all loaded, check again in 10ms
             setTimeout(checkStylesheets, 10);
@@ -42,8 +42,8 @@
     // Start checking when DOM is ready
     document.addEventListener('DOMContentLoaded', checkStylesheets);
 
-    // Fallback: ensure body is visible after 100ms even if check fails
+    // Fallback: ensure body is visible after 200ms even if check fails
     setTimeout(function() {
-        document.body.style.visibility = 'visible';
-    }, 100);
+        document.body.style.opacity = '1';
+    }, 200);
 })();
