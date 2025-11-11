@@ -229,13 +229,19 @@
 }
 
 /* ======================================
-   PORTFOLIO SECTION - Disable Color Inversion
-   - Template inverts logo colors by default (for dark logos on light bg)
-   - Remove inversion to preserve original logo colors
+   PORTFOLIO SECTION - Grayscale Partner Logos
+   - Convert partner logos to grayscale for consistent appearance
+   - Add hover effect to show color on interaction
 ====================================== */
 .brand-slider-2 .brand-logo img {
-  filter: none !important;
-  -webkit-filter: none !important;
+  filter: grayscale(100%) !important;
+  -webkit-filter: grayscale(100%) !important;
+  transition: filter 0.3s ease !important;
+}
+
+.brand-slider-2 .brand-logo:hover img {
+  filter: grayscale(0%) !important;
+  -webkit-filter: grayscale(0%) !important;
 }
 
 /* ======================================
@@ -479,4 +485,27 @@
 section:not([class*="tj-feature"]):not([class*="footer"]):not([class*="hero"]) {
   position: relative;
   z-index: 1;
+}
+
+/* ======================================
+   HOVER SHINE ANIMATION - Enhanced & Slower
+   - Brighter shine effect (0.3 -> 0.6 opacity)
+   - Slower animation (1s -> 1.5s)
+====================================== */
+.hover\:shine::before {
+  background-image: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.6) 100%) !important;
+  transition: 1.5s ease !important;
+}
+
+.hover\:shine:is(:hover, :focus-within)::before {
+  animation: shine-custom 1.5s ease forwards !important;
+}
+
+@keyframes shine-custom {
+  0% {
+    transform: skewX(-25deg) translateX(0);
+  }
+  100% {
+    transform: skewX(-25deg) translateX(250%);
+  }
 }
