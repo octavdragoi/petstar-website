@@ -1,4 +1,4 @@
-.PHONY: help up down restart logs logs-web logs-strapi ps build clean backup restore
+.PHONY: help up down restart logs logs-web logs-strapi ps build build-docker clean backup restore watch status
 
 # Auto-detect container runtime (Docker or Podman)
 # Checks in order of preference: docker compose plugin, docker-compose, podman compose plugin, podman-compose
@@ -50,7 +50,18 @@ logs-strapi: ## View Strapi logs
 ps: ## Show running containers
 	$(DC) ps
 
-build: ## Rebuild services
+build: ## Build i18n localized versions (EN/RO)
+	@echo "Building localized website versions..."
+	@cd .. && npm install 2>/dev/null || true
+	@cd .. && npm run build:i18n
+	@echo "✓ Build complete! Files generated in /dist/"
+
+watch: ## Watch for changes and auto-rebuild i18n
+	@echo "Starting i18n watch mode..."
+	@cd .. && npm install 2>/dev/null || true
+	@cd .. && npm run watch:i18n
+
+build-docker: ## Rebuild Docker services
 	$(DC) build
 
 clean: ## Stop services and remove volumes (WARNING: deletes data!)

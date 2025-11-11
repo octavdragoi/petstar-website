@@ -17,7 +17,7 @@
             <div class="col-12">
                <div class="header-topbar_wrap">
                   <div class="topbar_note">
-                     <i class="tji-check"></i> Romania's Leading PET Manufacturer - Closing the Circular Economy Loop
+                     <i class="tji-check"></i> {{t header.topbarTagline}}
                   </div>
                   <div class="topbar_infos">
                      <div class="info_item">
@@ -30,8 +30,8 @@
                      </div>
                      <div class="info_item">
                         <select class="nice-select">
-                           <option value="ro" selected>Română</option>
-                           <option value="en">English</option>
+                           <option value="ro">{{t header.langRomanian}}</option>
+                           <option value="en">{{t header.langEnglish}}</option>
                         </select>
                      </div>
                   </div>
@@ -58,17 +58,17 @@
                   <!-- Main Navigation Menu -->
                   <div class="mainmenu d-lg-block d-none" id="main-menu">
                      <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#story">Story</a></li>
+                        <li><a href="index.html">{{t nav.home}}</a></li>
+                        <li><a href="#story">{{t nav.story}}</a></li>
                         <li class="has-dropdown">
-                           <a href="javascript:void(0)">Teams</a>
+                           <a href="javascript:void(0)">{{t nav.teams}}</a>
                            <ul class="sub-menu">
-                              <li><a href="preforms-team.html">Preforms Team</a></li>
-                              <li><a href="recycling-team.html">Recycling Team</a></li>
+                              <li><a href="preforms-team.html">{{t nav.preformTeam}}</a></li>
+                              <li><a href="recycling-team.html">{{t nav.recyclingTeam}}</a></li>
                            </ul>
                         </li>
                         <li class="has-dropdown">
-                           <a href="javascript:void(0)">Products</a>
+                           <a href="javascript:void(0)">{{t nav.products}}</a>
                            <ul class="sub-menu">
                               <li><a href="products.html?category=preforms">PET Preforms</a></li>
                               <li><a href="products.html?category=rpet">rPET Materials</a></li>
@@ -76,7 +76,7 @@
                            </ul>
                         </li>
                         <li class="has-dropdown">
-                           <a href="#certifications">Certifications</a>
+                           <a href="#certifications">{{t nav.certifications}}</a>
                            <ul class="sub-menu">
                               <li><a href="preforms-certifications.html">Preforms Certifications</a></li>
                               <li><a href="recycling-certifications.html">Recycling Certifications</a></li>
@@ -84,7 +84,8 @@
                         </li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#virtual-tour">Virtual Tour</a></li>
-                        <li><a href="news.html">News</a></li>
+                        <li><a href="#news">{{t nav.news}}</a></li>
+                        <li><a href="contact.html">{{t nav.contact}}</a></li>
                      </ul>
                   </div>
 
@@ -99,7 +100,7 @@
                               </span>
                            </div>
                            <div class="btn_text">
-                              <span>Contact Us</span>
+                              <span>{{t common.contactUs}}</span>
                            </div>
                         </div>
                      </a>
@@ -107,7 +108,7 @@
 
                   <!-- Mobile Menu Button -->
                   <button class="menu_btn d-lg-none hamburgerBtn">
-                     Menu
+                     {{t header.menu}}
                      <span class="cubes">
                         <span></span>
                         <span></span>
@@ -144,17 +145,17 @@
                   <!-- Main Navigation Menu -->
                   <div class="mainmenu d-lg-block d-none" id="main-menu-sticky">
                      <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#story">Story</a></li>
+                        <li><a href="index.html">{{t nav.home}}</a></li>
+                        <li><a href="#story">{{t nav.story}}</a></li>
                         <li class="has-dropdown">
-                           <a href="javascript:void(0)">Teams</a>
+                           <a href="javascript:void(0)">{{t nav.teams}}</a>
                            <ul class="sub-menu">
-                              <li><a href="preforms-team.html">Preforms Team</a></li>
-                              <li><a href="recycling-team.html">Recycling Team</a></li>
+                              <li><a href="preforms-team.html">{{t nav.preformTeam}}</a></li>
+                              <li><a href="recycling-team.html">{{t nav.recyclingTeam}}</a></li>
                            </ul>
                         </li>
                         <li class="has-dropdown">
-                           <a href="javascript:void(0)">Products</a>
+                           <a href="javascript:void(0)">{{t nav.products}}</a>
                            <ul class="sub-menu">
                               <li><a href="products.html?category=preforms">PET Preforms</a></li>
                               <li><a href="products.html?category=rpet">rPET Materials</a></li>
@@ -162,7 +163,7 @@
                            </ul>
                         </li>
                         <li class="has-dropdown">
-                           <a href="#certifications">Certifications</a>
+                           <a href="#certifications">{{t nav.certifications}}</a>
                            <ul class="sub-menu">
                               <li><a href="preforms-certifications.html">Preforms Certifications</a></li>
                               <li><a href="recycling-certifications.html">Recycling Certifications</a></li>
@@ -170,8 +171,8 @@
                         </li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#virtual-tour">Virtual Tour</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="news.html">{{t nav.news}}</a></li>
+                        <li><a href="contact.html">{{t nav.contact}}</a></li>
                      </ul>
                   </div>
 
@@ -186,7 +187,7 @@
                               </span>
                            </div>
                            <div class="btn_text">
-                              <span>Get Quote</span>
+                              <span>{{t common.getInTouch}}</span>
                            </div>
                         </div>
                      </a>
@@ -194,7 +195,7 @@
 
                   <!-- Mobile Menu Button -->
                   <button class="menu_btn d-lg-none hamburgerBtn">
-                     Menu
+                     {{t header.menu}}
                      <span class="cubes">
                         <span></span>
                         <span></span>

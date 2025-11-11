@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "title": "PetStar - Romania's Leading PET Preform Manufacturer",
+    "description": "PetStar - Romania's Leading PET Preform Manufacturer. Industry leader since 2009 with cutting-edge technology and circular economy solutions.",
+    "newsTitle": "News & Updates - PetStar",
+    "newsDescription": "Latest news and updates from PetStar - Romania's leading PET preform manufacturer",
+    "newsDetailsTitle": "Article - PetStar News",
+    "newsDetailsDescription": "Read the latest news from PetStar",
+    "preformsCertTitle": "Preforms Certifications - PetStar",
+    "preformsCertDescription": "Quality and safety certifications for PetStar preforms manufacturing",
+    "recyclingCertTitle": "Recycling Certifications - PetStar",
+    "recyclingCertDescription": "Quality and safety certifications for PetStar Recycling operations",
+    "smiTitle": "SMI Policy - PetStar",
+    "smiDescription": "Integrated Management System Policy"
+  },
+  "header": {
+    "topbarTagline": "Romania's Leading PET Manufacturer - Closing the Circular Economy Loop",
+    "email": "office@petstar.ro",
+    "phone": "+40 243 230 808",
+    "langRomanian": "Română",
+    "langEnglish": "English",
+    "menu": "Menu"
+  },
+  "nav": {
+    "home": "Home",
+    "teams": "Teams",
+    "preformTeam": "Preforms Team",
+    "recyclingTeam": "Recycling Team",
+    "story": "Our Story",
+    "products": "Products",
+    "certifications": "Certifications",
+    "news": "News",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Closing the Circle: From PET Waste to",
+    "titleHighlight": "Premium Preforms",
+    "subtitle": "Leading Romania's circular economy with bottle-to-bottle technology. Transforming PET waste into high-quality preforms for a sustainable future.",
+    "ctaButton": "Discover Our Story"
+  },
+  "story": {
+    "heading": "Integrated bottle-to-bottle technology closing the sustainability loop",
+    "description": "From collection to manufacturing, our integrated approach ensures the highest quality standards while minimizing environmental impact."
+  },
+  "teams": {
+    "heading": "Two integrated teams, one vision",
+    "preforms": {
+      "title": "PetStar Preforms",
+      "description": "Advanced manufacturing of premium PET preforms with state-of-the-art technology",
+      "ctaButton": "Learn More"
+    },
+    "recycling": {
+      "title": "PetStar Recycling",
+      "description": "Bottle-to-bottle recycling facility transforming PET waste into food-grade rPET",
+      "ctaButton": "Learn More"
+    }
+  },
+  "products": {
+    "heading": "Sustainable packaging, vertically integrated.",
+    "subtitle": "From recycled flakes to finished preforms",
+    "flakes": {
+      "title": "rPET Flakes",
+      "description": "High-quality recycled PET flakes processed from post-consumer bottles"
+    },
+    "resin": {
+      "title": "rPET Resin",
+      "description": "Food-grade recycled PET resin meeting the highest safety standards"
+    },
+    "preforms": {
+      "title": "PET Preforms",
+      "description": "Premium preforms manufactured with virgin and recycled PET"
+    }
+  },
+  "certifications": {
+    "heading": "Quality and compliance standards",
+    "subtitle": "Certified to the highest international standards",
+    "viewPreforms": "View Preforms Certifications",
+    "viewRecycling": "View Recycling Certifications",
+    "qualityManagement": "Quality & Management Standards",
+    "iso9001": {
+      "title": "ISO 9001:2015",
+      "description": "Quality Management System"
+    },
+    "iso14001": {
+      "title": "ISO 14001:2015",
+      "description": "Environmental Management System"
+    },
+    "iso45001": {
+      "title": "ISO 45001:2018",
+      "description": "Occupational Health & Safety Management System"
+    },
+    "iqnet": {
+      "title": "IQNET Certification",
+      "description": "International Certification Network"
+    },
+    "foodSafety": "Food Safety & Accountability",
+    "iso22000": {
+      "title": "ISO 22000:2018",
+      "description": "Food Safety Management System"
+    },
+    "haccp": {
+      "title": "HACCP System",
+      "description": "Hazard Analysis and Critical Control Points"
+    },
+    "fssc22000": {
+      "title": "FSSC 22000",
+      "description": "Food Safety System Certification"
+    },
+    "sa8000": {
+      "title": "SA 8000:2014",
+      "description": "Social Accountability International Standard"
+    },
+    "recyclingTraceability": "Recycling & Traceability",
+    "recyclass": {
+      "title": "RecyClass EN 15343:2007",
+      "description": "Plastic traceability and assessment scheme"
+    },
+    "srac": {
+      "title": "SRAC Product Certificate",
+      "description": "Sustainable Recycled Accreditation Certificate"
+    },
+    "efsa": {
+      "title": "EFSA Registration",
+      "description": "European Food Safety Authority"
+    },
+    "en15343": {
+      "title": "EN 15343:2007",
+      "description": "Plastics recycling traceability standard"
+    },
+    "needMoreInfo": "Need More Information?",
+    "contactUs": "Contact us for detailed certification documents"
+  },
+  "portfolio": {
+    "heading": "Trusted by Leading Brands",
+    "subtitle": "Partnering with industry leaders across Romania and Europe"
+  },
+  "news": {
+    "heading": "Latest News & Updates",
+    "subtitle": "Stay informed about our latest developments",
+    "readMore": "Read More",
+    "backToNews": "Back to News",
+    "recentPosts": "Recent Post",
+    "categories": "Categories",
+    "tags": "Tags",
+    "searchPlaceholder": "Search here"
+  },
+  "contact": {
+    "heading": "Contact",
+    "address": "DN 2A Km 64, Slobozia, Ialomița, Romania",
+    "email": "office@petstar.ro",
+    "phone": "+40 243 230 808"
+  },
+  "footer": {
+    "about": "About PetStar",
+    "aboutDescription": "Leading Romania's circular economy with integrated bottle-to-bottle technology since 2009.",
+    "quickLinks": "Quick Links",
+    "ourStory": "Our Story",
+    "products": "Products",
+    "certifications": "Certifications",
+    "news": "News",
+    "contact": "Contact",
+    "resources": "Resources",
+    "smiPolicy": "SMI Policy",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "contactUs": "Contact Us",
+    "address": "DN 2A Km 64, Slobozia, Ialomița, Romania",
+    "email": "office@petstar.ro",
+    "phone": "+40 243 230 808",
+    "followUs": "Follow Us",
+    "copyright": "© 2024 PetStar. All rights reserved.",
+    "newsletterTitle": "Subscribe to Newsletter",
+    "newsletterPlaceholder": "Enter your email",
+    "newsletterButton": "Subscribe"
+  },
+  "smi": {
+    "heading": "Integrated Management System Policy",
+    "subtitle": "Our commitment to quality, environment, health, safety, and social responsibility",
+    "downloadPdf": "Download PDF"
+  },
+  "certPage": {
+    "circularEconomy": "Our Circular Economy Mission",
+    "circularEconomyText": "At PetStar, we're committed to closing the loop in PET packaging. Our certifications demonstrate our dedication to quality, safety, and environmental responsibility throughout the entire recycling and manufacturing process."
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "viewMore": "View More",
+    "contactUs": "Contact Us",
+    "getInTouch": "Get In Touch",
+    "readMore": "Read More",
+    "downloadPdf": "Download PDF",
+    "close": "Close",
+    "submit": "Submit",
+    "send": "Send",
+    "loading": "Loading..."
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "title": "PetStar - Producător Líder de Preforme PET în România",
+    "description": "PetStar - Producător líder de preforme PET în România. Líder în industrie din 2009 cu tehnologie de vârf și soluții pentru economia circulară.",
+    "newsTitle": "Știri & Actualizări - PetStar",
+    "newsDescription": "Ultimele știri și actualizări de la PetStar - producătorul líder de preforme PET din România",
+    "newsDetailsTitle": "Articol - Știri PetStar",
+    "newsDetailsDescription": "Citește ultimele știri de la PetStar",
+    "preformsCertTitle": "Certificări Preforme - PetStar",
+    "preformsCertDescription": "Certificări de calitate și siguranță pentru producția de preforme PetStar",
+    "recyclingCertTitle": "Certificări Reciclare - PetStar",
+    "recyclingCertDescription": "Certificări de calitate și siguranță pentru operațiunile de reciclare PetStar",
+    "smiTitle": "Politica SMI - PetStar",
+    "smiDescription": "Politica Sistemului Integrat de Management"
+  },
+  "header": {
+    "topbarTagline": "Producător Líder PET în România - Închiderea Buclei Economiei Circulare",
+    "email": "office@petstar.ro",
+    "phone": "+40 243 230 808",
+    "langRomanian": "Română",
+    "langEnglish": "English",
+    "menu": "Meniu"
+  },
+  "nav": {
+    "home": "Acasă",
+    "teams": "Echipe",
+    "preformTeam": "Echipa de Preforme",
+    "recyclingTeam": "Echipa de Reciclare",
+    "story": "Povestea Noastră",
+    "products": "Produse",
+    "certifications": "Certificări",
+    "news": "Știri",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Închiderea Cercului: De la Deșeuri PET la",
+    "titleHighlight": "Preforme Premium",
+    "subtitle": "Conducând economia circulară a României cu tehnologie bottle-to-bottle. Transformăm deșeurile PET în preforme de înaltă calitate pentru un viitor durabil.",
+    "ctaButton": "Descoperă Povestea Noastră"
+  },
+  "story": {
+    "heading": "Tehnologie integrată bottle-to-bottle care închide ciclul sustenabilității",
+    "description": "De la colectare la producție, abordarea noastră integrată asigură cele mai înalte standarde de calitate minimizând în același timp impactul asupra mediului."
+  },
+  "teams": {
+    "heading": "Două echipe integrate, o viziune",
+    "preforms": {
+      "title": "PetStar Preforme",
+      "description": "Producție avansată de preforme PET premium cu tehnologie de ultimă generație",
+      "ctaButton": "Află Mai Multe"
+    },
+    "recycling": {
+      "title": "PetStar Reciclare",
+      "description": "Facilitate de reciclare bottle-to-bottle care transformă deșeurile PET în rPET de calitate alimentară",
+      "ctaButton": "Află Mai Multe"
+    }
+  },
+  "products": {
+    "heading": "Ambalaje durabile, integrate vertical.",
+    "subtitle": "De la fulgi reciclați la preforme finite",
+    "flakes": {
+      "title": "Fulgi rPET",
+      "description": "Fulgi PET reciclați de înaltă calitate procesați din sticle post-consum"
+    },
+    "resin": {
+      "title": "Rășină rPET",
+      "description": "Rășină PET reciclată de calitate alimentară care îndeplinește cele mai înalte standarde de siguranță"
+    },
+    "preforms": {
+      "title": "Preforme PET",
+      "description": "Preforme premium fabricate cu PET virgin și reciclat"
+    }
+  },
+  "certifications": {
+    "heading": "Standarde de calitate și conformitate",
+    "subtitle": "Certificați conform celor mai înalte standarde internaționale",
+    "viewPreforms": "Vezi Certificări Preforme",
+    "viewRecycling": "Vezi Certificări Reciclare",
+    "qualityManagement": "Standarde de Calitate & Management",
+    "iso9001": {
+      "title": "ISO 9001:2015",
+      "description": "Sistem de Management al Calității"
+    },
+    "iso14001": {
+      "title": "ISO 14001:2015",
+      "description": "Sistem de Management de Mediu"
+    },
+    "iso45001": {
+      "title": "ISO 45001:2018",
+      "description": "Sistem de Management al Sănătății și Securității Ocupaționale"
+    },
+    "iqnet": {
+      "title": "Certificare IQNET",
+      "description": "Rețea Internațională de Certificare"
+    },
+    "foodSafety": "Siguranță Alimentară & Responsabilitate",
+    "iso22000": {
+      "title": "ISO 22000:2018",
+      "description": "Sistem de Management al Siguranței Alimentare"
+    },
+    "haccp": {
+      "title": "Sistem HACCP",
+      "description": "Analiza Pericolelor și Punctele Critice de Control"
+    },
+    "fssc22000": {
+      "title": "FSSC 22000",
+      "description": "Certificare a Sistemului de Siguranță Alimentară"
+    },
+    "sa8000": {
+      "title": "SA 8000:2014",
+      "description": "Standard Internațional de Responsabilitate Socială"
+    },
+    "recyclingTraceability": "Reciclare & Trasabilitate",
+    "recyclass": {
+      "title": "RecyClass EN 15343:2007",
+      "description": "Schemă de trasabilitate și evaluare a plasticului"
+    },
+    "srac": {
+      "title": "Certificat de Produs SRAC",
+      "description": "Certificat de Acreditare pentru Reciclare Durabilă"
+    },
+    "efsa": {
+      "title": "Înregistrare EFSA",
+      "description": "Autoritatea Europeană pentru Siguranța Alimentară"
+    },
+    "en15343": {
+      "title": "EN 15343:2007",
+      "description": "Standard de trasabilitate pentru reciclarea plasticului"
+    },
+    "needMoreInfo": "Ai Nevoie de Mai Multe Informații?",
+    "contactUs": "Contactează-ne pentru documentele detaliate de certificare"
+  },
+  "portfolio": {
+    "heading": "Încrederea Brandurilor Lídere",
+    "subtitle": "Parteneri cu liderii industriei din România și Europa"
+  },
+  "news": {
+    "heading": "Ultimele Știri & Actualizări",
+    "subtitle": "Fii la curent cu cele mai recente dezvoltări ale noastre",
+    "readMore": "Citește Mai Mult",
+    "backToNews": "Înapoi la Știri",
+    "recentPosts": "Postări Recente",
+    "categories": "Categorii",
+    "tags": "Etichete",
+    "searchPlaceholder": "Caută aici"
+  },
+  "contact": {
+    "heading": "Contact",
+    "address": "DN 2A Km 64, Slobozia, Ialomița, România",
+    "email": "office@petstar.ro",
+    "phone": "+40 243 230 808"
+  },
+  "footer": {
+    "about": "Despre PetStar",
+    "aboutDescription": "Conducând economia circulară a României cu tehnologie integrată bottle-to-bottle din 2009.",
+    "quickLinks": "Link-uri Rapide",
+    "ourStory": "Povestea Noastră",
+    "products": "Produse",
+    "certifications": "Certificări",
+    "news": "Știri",
+    "contact": "Contact",
+    "resources": "Resurse",
+    "smiPolicy": "Politica SMI",
+    "privacyPolicy": "Politica de Confidențialitate",
+    "termsConditions": "Termeni și Condiții",
+    "contactUs": "Contactează-ne",
+    "address": "DN 2A Km 64, Slobozia, Ialomița, România",
+    "email": "office@petstar.ro",
+    "phone": "+40 243 230 808",
+    "followUs": "Urmărește-ne",
+    "copyright": "© 2024 PetStar. Toate drepturile rezervate.",
+    "newsletterTitle": "Abonează-te la Newsletter",
+    "newsletterPlaceholder": "Introdu email-ul tău",
+    "newsletterButton": "Abonează-te"
+  },
+  "smi": {
+    "heading": "Politica Sistemului Integrat de Management",
+    "subtitle": "Angajamentul nostru față de calitate, mediu, sănătate, siguranță și responsabilitate socială",
+    "downloadPdf": "Descarcă PDF"
+  },
+  "certPage": {
+    "circularEconomy": "Misiunea Noastră pentru Economia Circulară",
+    "circularEconomyText": "La PetStar, suntem angajați să închidem ciclul în ambalajele PET. Certificările noastre demonstrează dedicarea noastră față de calitate, siguranță și responsabilitate față de mediu pe tot parcursul procesului de reciclare și producție."
+  },
+  "common": {
+    "learnMore": "Află Mai Multe",
+    "viewMore": "Vezi Mai Multe",
+    "contactUs": "Contactează-ne",
+    "getInTouch": "Ia Legătura",
+    "readMore": "Citește Mai Mult",
+    "downloadPdf": "Descarcă PDF",
+    "close": "Închide",
+    "submit": "Trimite",
+    "send": "Trimite",
+    "loading": "Se încarcă..."
+  }
+}

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Article - PetStar News</title>
-    <meta name="description" content="Read the latest news from PetStar">
+    <title>News & Updates - PetStar</title>
+    <meta name="description" content="Latest news and updates from PetStar - Romania's leading PET preform manufacturer and recycling facility">
 
-<!--#include virtual="/assets/components/head-common.html" -->
+<!--#include virtual="assets/components/head-common.html" -->
 </head>
 <body style="visibility: hidden;">
-<!--#include virtual="/assets/components/body-start.html" -->
+<!--#include virtual="assets/components/body-start.html" -->
 
-<!--#include virtual="/sections/section-01-header.html" -->
+<!--#include virtual="sections/section-01-header.html" -->
     
     <!-- Page Header -->
     <section class="tj-page-header" data-bg-image="assets/images/petstar-processed/news-header.avif">
@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="tj-page-header-content text-center">
-                        <h1 class="tj-page-title text-anim" id="page-title">News Article</h1>
+                        <h1 class="tj-page-title text-anim">{{t news.heading}}</h1>
                         <div class="tj-page-link wow fadeInUp" data-wow-delay="0.1s">
                             <span>
                                 <a href="index.html">
@@ -26,43 +26,37 @@
                             </span>
                             <span>/</span>
                             <span>
-                                <a href="news.html">
-                                    <span>News</span>
-                                </a>
-                            </span>
-                            <span>/</span>
-                            <span>
-                                <span>Article</span>
+                                <span>News</span>
                             </span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Article Details Section -->
-    <section class="tj-post-area section-space">
-        <div class="container">
-            <div class="row rg-50">
-                <div class="col-lg-8">
-                    <div class="tj-post-wrapper" id="article-container">
-                        <!-- Article will be loaded here by news-loader.js -->
-                        <div class="text-center" style="padding: 60px 0;">
-                            <p>Loading article...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <!--#include virtual="/assets/components/sidebar-news.html" -->
                 </div>
             </div>
         </div>
     </section>
     
-<!--#include virtual="/sections/section-12-footer.html" -->
+    <!-- News Listing Section -->
+    <section class="tj-post-area section-space">
+        <div class="container">
+            <div class="row rg-50">
+                <div class="col-lg-8">
+                    <div class="tj-post-wrapper" id="news-container">
+                        <!-- Articles will be loaded here by news-loader.js -->
+                        <div class="text-center" style="padding: 60px 0;">
+                            <p>Loading articles...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <!--#include virtual="assets/components/sidebar-news.html" -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<!--#include virtual="sections/section-12-footer.html" -->
 
-<!--#include virtual="/assets/components/body-end.html" -->
+<!--#include virtual="assets/components/body-end.html" -->
     <script src="assets/js/news-loader.js"></script>
 
     <script>
@@ -75,17 +69,11 @@
                 }
             });
 
-            // Load article details
+            // Load news articles (showing more articles on listing page)
             if (typeof NewsLoader !== 'undefined') {
-                NewsLoader.renderArticleDetails('article-container');
+                NewsLoader.renderNewsListing('news-container');
             } else {
                 console.error('NewsLoader not found');
-                document.getElementById('article-container').innerHTML = `
-                    <div class="alert alert-danger">
-                        <p>Error loading article. Please try again later.</p>
-                        <a href="news.html" class="tj-primary-btn">Back to News</a>
-                    </div>
-                `;
             }
         });
     </script>
