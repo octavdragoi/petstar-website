@@ -40,14 +40,10 @@
     document.documentElement.setAttribute('lang', currentLang);
 
     // Set selected option in native select (before nice-select transforms it)
-    // Only target language switcher selects (those with language options)
-    const selects = document.querySelectorAll('select.nice-select[data-language-switcher], .header-top select.nice-select');
+    // Only target language switcher selects with data-language-switcher attribute
+    const selects = document.querySelectorAll('select[data-language-switcher]');
     selects.forEach(function(select) {
-      // Only set if this select has language options
-      const hasLanguageOptions = Array.from(select.options).some(opt => opt.value === 'en' || opt.value === 'ro');
-      if (hasLanguageOptions) {
-        select.value = currentLang;
-      }
+      select.value = currentLang;
     });
 
     // Handle nice-select plugin (if loaded)
@@ -55,24 +51,20 @@
     if (typeof jQuery !== 'undefined' && jQuery.fn.niceSelect) {
       // Use setTimeout to ensure nice-select is fully initialized
       setTimeout(function() {
-        // Only attach handler to language switcher selects (those in header or with data attribute)
-        jQuery('select.nice-select[data-language-switcher], .header-top select.nice-select').each(function() {
+        // Only attach handler to language switcher selects with data attribute
+        jQuery('select[data-language-switcher]').each(function() {
           const $select = jQuery(this);
-          // Double check this is a language select by checking if it has en/ro options
-          const hasLanguageOptions = $select.find('option[value="en"], option[value="ro"]').length > 0;
 
-          if (hasLanguageOptions) {
-            $select.off('change.languageSwitcher').on('change.languageSwitcher', function() {
-              const selectedLang = jQuery(this).val();
-              const currentLang = getCurrentLanguage();
-              if (selectedLang !== currentLang) {
-                switchLanguage(selectedLang);
-              }
-            });
+          $select.off('change.languageSwitcher').on('change.languageSwitcher', function() {
+            const selectedLang = jQuery(this).val();
+            const currentLang = getCurrentLanguage();
+            if (selectedLang !== currentLang) {
+              switchLanguage(selectedLang);
+            }
+          });
 
-            // Update nice-select to show correct value
-            $select.val(currentLang).niceSelect('update');
-          }
+          // Update nice-select to show correct value
+          $select.val(currentLang).niceSelect('update');
         });
       }, 200);
     }

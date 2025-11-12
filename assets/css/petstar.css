@@ -250,6 +250,7 @@
    - Increase image width from 645px to 800px
    - Reduce content padding to prevent overflow
    - Adjust text max-width to maintain balance
+   - Reduce spacing between service number and text
 ====================================== */
 .service-item .service-images {
   max-width: 800px; /* Increased from 645px */
@@ -259,10 +260,17 @@
 
 .service-item .service-content {
   padding: 60px 15px 60px 40px; /* Reduced left padding from 65px to 40px */
+  gap: 20px; /* Add gap between service number and text */
+}
+
+.service-item .service-content .service-number {
+  margin-bottom: 0; /* Remove any bottom margin */
+  padding-bottom: 0; /* Remove any bottom padding */
 }
 
 .service-item .service-content .service-text {
   max-width: 320px; /* Reduced from 365px to accommodate wider image */
+  margin-top: 0; /* Override auto margin to reduce spacing */
 }
 
 /* Responsive breakpoints - adjust proportionally */
@@ -479,7 +487,8 @@
 .tj-post-area,
 .h10-about-section,
 .tj-page-header,
-.tj-contact-area {
+.tj-contact-area,
+.h7-faq {
   background-color: var(--tj-color-common-white);
 }
 
