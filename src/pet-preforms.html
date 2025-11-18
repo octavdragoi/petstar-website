@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>PET Preforms - PetStar</title>
-    <meta name="description" content="Premium PET preforms in various neck finishes and weights - from Romania's largest PET preform manufacturer">
+    <title>{{t products.preforms.title}} - PetStar</title>
+    <meta name="description" content="{{t products.preforms.description}}">
 
 <!--#include virtual="assets/components/head-common.html" -->
 </head>
@@ -17,28 +17,41 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="tj-page-header-content text-center">
-                        <h1 class="tj-page-title text-anim">PET Preforms</h1>
+                        <h1 class="tj-page-title text-anim">{{t products.preforms.title}}</h1>
                         <div class="tj-page-link wow fadeInUp" data-wow-delay="0.1s">
                             <span>
                                 <a href="index.html">
-                                    <span>Home</span>
+                                    <span>{{t nav.home}}</span>
                                 </a>
                             </span>
                             <span>/</span>
                             <span>
                                 <a href="index.html#products">
-                                    <span>Products</span>
+                                    <span>{{t nav.products}}</span>
                                 </a>
                             </span>
                             <span>/</span>
                             <span>
-                                <span>PET Preforms</span>
+                                <span>{{t products.preforms.title}}</span>
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Product Description -->
+    <section style="padding: 40px 0 0 0;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="post-content">
+              <p class="lead">{{t products.preforms.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Products Section -->
@@ -155,12 +168,12 @@
                 <!-- PCO 1810 Standard -->
                 <div class="accordion-item wow fadeInUp" data-wow-delay="0.35s">
                   <h2 class="accordion-header">
-                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapse-pco-1810"
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-pco-1810"
                       aria-expanded="true">
                       <span>06.</span> PCO 1810
                     </button>
                   </h2>
-                  <div id="collapse-pco-1810" class="accordion-collapse collapse show" data-bs-parent="#accordionProducts">
+                  <div id="collapse-pco-1810" class="accordion-collapse collapse" data-bs-parent="#accordionProducts">
                     <div class="accordion-body">
                       <ul>
                         <li>19.5g</li>
