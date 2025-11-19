@@ -58,17 +58,28 @@
   "products": {
     "heading": "Sustainable packaging, vertically integrated.",
     "subtitle": "From recycled flakes to finished preforms",
+    "related": "Related Products",
+    "cta": {
+      "title": "Need Help?",
+      "description": "Contact us for technical specifications and pricing information",
+      "button": "Get in Touch"
+    },
     "flakes": {
       "title": "rPET Flakes",
-      "description": "High-purity, food-grade recycled PET flakes - ready for safe and reliable manufacturing. Our flakes meet stringent quality standards ensuring full compliance for food-contact packaging, textile or industrial applications worldwide."
+      "description": "High-purity, food-grade recycled PET flakes - ready for safe and reliable manufacturing. Our flakes meet stringent quality standards ensuring full compliance for food-contact packaging, textile or industrial applications worldwide.",
+      "specifications": "Product Details",
+      "details": "Our rPET flakes are produced through state-of-the-art recycling processes, ensuring the highest quality and purity standards. Ideal for various applications including food-contact packaging, textiles, and industrial uses."
     },
     "resin": {
       "title": "rPET Resin",
-      "description": "Premium recycled PET resin produced through advanced recycling processes. Food-grade certified material perfect for sustainable packaging solutions and circular economy applications."
+      "description": "Premium recycled PET resin produced through advanced recycling processes. Food-grade certified material perfect for sustainable packaging solutions and circular economy applications.",
+      "specifications": "Product Details",
+      "details": "Our rPET resin meets the strictest food-grade certification standards. Perfect for injection molding, extrusion, and other manufacturing processes requiring high-quality recycled material."
     },
     "preforms": {
       "title": "PET Preforms",
-      "description": "High-quality preforms manufactured to precise specifications for beverage and food packaging. Available in multiple neck finishes and weights to meet diverse industry needs."
+      "description": "High-quality preforms manufactured to precise specifications for beverage and food packaging. Available in multiple neck finishes and weights to meet diverse industry needs.",
+      "specifications": "Technical Specifications"
     }
   },
   "certifications": {
@@ -150,7 +161,7 @@
     "info_heading": "Our contact information",
     "email_title": "Email us",
     "phone_title": "Call us",
-    "location_title": "Our Location",
+    "location_title": "Our Locations",
     "hours_title": "Business Hours",
     "hours_monday_saturday": "Monday - Saturday",
     "hours_time": "7:00 AM - 5:00 PM",

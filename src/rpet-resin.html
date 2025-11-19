@@ -41,83 +41,116 @@
         </div>
     </section>
 
-    <!-- Product Description -->
-    <section style="padding: 40px 0 0 0;">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="post-content">
-              <p class="lead">{{t products.resin.description}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Product Details Section -->
+    <section class="tj-service-area section-space">
+        <div class="container">
+            <div class="row rg-50">
+                <!-- Main Content (Left Column) -->
+                <div class="col-lg-8">
+                    <div class="tj-post-wrapper">
+                        <div class="tj-post-single-post mb-0">
+                            <!-- Product Image Slider -->
+                            <div id="product-slider-container" class="mb-30">
+                                <!-- Slider will be loaded here by product-slider.js -->
+                            </div>
 
-    <!-- Products Section -->
-    <section class="h7-faq section-space">
-      <div class="container">
-        <div class="row flex-column-reverse flex-lg-row">
-          <div class="col-12">
+                            <!-- Product Description -->
+                            <div class="tj-entry-content">
+                                <p class="lead wow fadeInUp" data-wow-delay="0.1s">
+                                    {{t products.resin.description}}
+                                </p>
+                            </div>
 
-            <div class="tj-faq">
-              <div class="accordion tj-faq-style h7-faq-style" id="accordionProducts">
-
-                <!-- Content will be added here -->
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Technical Drawings CTA -->
-    <section class="tj-cta-section-two" style="background-color: var(--tj-color-theme-bg); padding: 60px 0;">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-8 col-md-7">
-            <div class="cta-content-area wow fadeInLeft" data-wow-delay="0.1s">
-              <div class="sec-heading">
-                <h3 class="sec-title" style="margin-bottom: 15px;">Need Technical Specifications?</h3>
-                <p style="color: var(--tj-color-text-body); margin-bottom: 0;">Detailed technical specifications and quality certificates are available for our rPET resin. Contact us to request the documentation you need for your specific application.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-5">
-            <div class="cta-btn-box text-md-end text-start wow fadeInRight" data-wow-delay="0.2s">
-              <a href="contact.html" class="tj-primary-btn">
-                <div class="btn_inner">
-                  <div class="btn_icon">
-                    <span>
-                      <i class="tji-arrow-right"></i>
-                      <i class="tji-arrow-right"></i>
-                    </span>
-                  </div>
-                  <div class="btn_text">
-                    <span>Request Specifications</span>
-                  </div>
+                            <!-- Product Specifications -->
+                            <div class="tj-check-list mt-40">
+                                <h4 class="text-anim">{{t products.resin.specifications}}</h4>
+                                <p class="wow fadeInUp" data-wow-delay="0.1s">
+                                    {{t products.resin.details}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </a>
+
+                <!-- Sidebar (Right Column) -->
+                <div class="col-lg-4">
+                    <aside class="tj-service-sidebar">
+                        <!-- Related Products -->
+                        <div class="tj-sidebar-widget wow fadeInUp" data-wow-delay="0.1s">
+                            <h5 class="tj-sidebar-widget-title">{{t products.related}}</h5>
+                            <div class="service-category">
+                                <ul>
+                                    <li><a href="pet-preforms.html">{{t products.preforms.title}}<i class="tji-angle-right"></i></a></li>
+                                    <li><a class="active" href="rpet-resin.html">{{t products.resin.title}}<i class="tji-angle-right"></i></a></li>
+                                    <li><a href="rpet-flakes.html">{{t products.flakes.title}}<i class="tji-angle-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Contact CTA -->
+                        <div class="tj-sidebar-widget wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="tj-sidebar-cta" data-bg-image="assets/images/petstar-processed/product-2.avif">
+                                <div class="content">
+                                    <div class="icon">
+                                        <i class="tji-phone" style="font-size: 48px; color: var(--tj-color-theme-primary);"></i>
+                                    </div>
+                                    <h3>{{t products.cta.title}}</h3>
+                                    <p>{{t products.cta.description}}</p>
+                                </div>
+                                <div class="cta-btn">
+                                    <a href="contact.html" class="tj-primary-btn white-btn">
+                                        <div class="btn_inner">
+                                            <div class="btn_icon">
+                                                <span>
+                                                    <i class="tji-arrow-right"></i>
+                                                    <i class="tji-arrow-right"></i>
+                                                </span>
+                                            </div>
+                                            <div class="btn_text"><span>{{t products.cta.button}}</span></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
 <!--#include virtual="sections/section-12-footer.html" -->
 
 <!--#include virtual="assets/components/body-end.html" -->
 
+    <script src="assets/js/product-slider.js"></script>
     <script>
-        // Wait for window.load to ensure all stylesheets are ready
-        window.addEventListener('load', function() {
-            // Highlight active menu item
+        // Highlight active menu item - use jQuery ready instead of window.load to avoid timing conflicts
+        $(document).ready(function() {
             $('.header-menu ul li a').each(function() {
                 if ($(this).attr('href') && $(this).attr('href').indexOf('rpet-resin.html') > -1) {
                     $(this).parent().addClass('active');
                 }
             });
+
+            // Initialize product image slider
+            if (typeof ProductSlider !== 'undefined') {
+                const resinImages = [
+                    'assets/images/petstar-processed/product-2.avif',
+                    'assets/images/petstar-processed/product-3.avif',
+                    'assets/images/petstar-processed/product-1.avif'
+                ];
+
+                ProductSlider.renderInContainer(
+                    'product-slider-container',
+                    resinImages,
+                    '{{t products.resin.title}}',
+                    {
+                        showNavigation: true,
+                        autoplay: true,
+                        autoplayDelay: 5000
+                    }
+                );
+            }
         });
     </script>
 </body>

@@ -4,4 +4,4 @@
 ====================================== */
 
 // All standard functionality is handled by main.js
-// Add PetStar-specific custom code here only when needed
+// This file is intentionally minimal to avoid code duplication

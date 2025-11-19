@@ -58,17 +58,28 @@
   "products": {
     "heading": "Ambalaje durabile, integrate vertical.",
     "subtitle": "De la fulgi reciclați la preforme finite",
+    "related": "Produse Conexe",
+    "cta": {
+      "title": "Aveți Nevoie de Ajutor?",
+      "description": "Contactați-ne pentru specificații tehnice și informații despre prețuri",
+      "button": "Luați Legătura"
+    },
     "flakes": {
       "title": "Fulgi rPET",
-      "description": "Fulgi PET reciclați, curățați și sortați, gata pentru producție. Fulgii noștri îndeplinesc standarde stricte de calitate pentru aplicații textile, de ambalare și industriale în întreaga lume."
+      "description": "Fulgi PET reciclați, curățați și sortați, gata pentru producție. Fulgii noștri îndeplinesc standarde stricte de calitate pentru aplicații textile, de ambalare și industriale în întreaga lume.",
+      "specifications": "Detalii Produs",
+      "details": "Fulgii noștri rPET sunt produși prin procese de reciclare de ultimă generație, asigurând cele mai înalte standarde de calitate și puritate. Ideali pentru diverse aplicații, inclusiv ambalaje pentru contact alimentar, textile și utilizări industriale."
     },
     "resin": {
       "title": "Rășină rPET",
-      "description": "Rășină PET reciclată premium produsă prin procese avansate de reciclare. Material certificat de calitate alimentară perfect pentru soluții de ambalare durabile și aplicații în economia circulară."
+      "description": "Rășină PET reciclată premium produsă prin procese avansate de reciclare. Material certificat de calitate alimentară perfect pentru soluții de ambalare durabile și aplicații în economia circulară.",
+      "specifications": "Detalii Produs",
+      "details": "Rășina noastră rPET îndeplinește cele mai stricte standarde de certificare pentru calitate alimentară. Perfectă pentru turnare prin injecție, extrudare și alte procese de fabricație care necesită material reciclat de înaltă calitate."
     },
     "preforms": {
       "title": "Preforme PET",
-      "description": "Preforme de înaltă calitate fabricate conform specificațiilor precise pentru ambalarea băuturilor și alimentelor. Disponibile în multiple finisaje de gât și greutăți pentru a satisface diverse nevoi ale industriei."
+      "description": "Preforme de înaltă calitate fabricate conform specificațiilor precise pentru ambalarea băuturilor și alimentelor. Disponibile în multiple finisaje de gât și greutăți pentru a satisface diverse nevoi ale industriei.",
+      "specifications": "Specificații Tehnice"
     }
   },
   "certifications": {

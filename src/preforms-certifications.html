@@ -175,8 +175,8 @@
 <!--#include virtual="assets/components/body-end.html" -->
 
     <script>
-        // Wait for window.load to ensure all stylesheets are ready
-        window.addEventListener('load', function() {
+        // Use jQuery ready instead of window.load to avoid timing conflicts
+        $(document).ready(function() {
             // Highlight active menu item if needed
             $('.header-menu ul li a').each(function() {
                 if ($(this).attr('href') === 'index.html') {

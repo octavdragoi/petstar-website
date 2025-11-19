@@ -107,6 +107,105 @@
 }
 
 /* ======================================
+   HERO SECTION CAROUSEL
+   Carousel positioned as background shape (replaces about-shape-1 image)
+   - Ensure carousel is above stackOverlay for interactions
+====================================== */
+/* Fix z-index to ensure carousel is above stackOverlay */
+.heroStack .hero-images-box {
+  position: relative;
+  z-index: 2; /* Above stackOverlay which has z-index: 1 */
+}
+
+.hero-images .hero-carousel-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.hero-images .swiper-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-images .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Hover shine effect - Enhanced to match global shine animation */
+.hero-images .swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -140%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.6) 100%);
+  transform: skewX(-25deg);
+  transition: left 1.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-images .swiper-slide:hover::before {
+  left: 250%;
+}
+
+.hero-images .swiper-slide:hover img {
+  transform: scale(1.05);
+}
+
+/* Pagination dots styling - breakpoint-based positioning matching blob image scaling */
+.hero-carousel-pagination {
+  position: absolute !important;
+  top: auto !important;
+  left: 50% !important;
+  bottom: 25px !important; /* Default for >1600px: blob height 676px, positioned ~15.5% from bottom */
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  text-align: center;
+  z-index: 10;
+  width: auto !important;
+}
+
+.hero-carousel-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  margin: 0 6px;
+  transition: all 0.3s ease;
+}
+
+.hero-carousel-pagination .swiper-pagination-bullet-active {
+  background: var(--tj-color-theme-primary);
+  width: 30px;
+  border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .hero-carousel-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
+
+  .hero-carousel-pagination .swiper-pagination-bullet-active {
+    width: 24px;
+  }
+}
+
+
+
+
+/* ======================================
    STORY SECTION CAROUSEL
    Carousel positioned as background shape (replaces about-shape-1 image)
 ====================================== */
@@ -488,15 +587,45 @@
 .h10-about-section,
 .tj-page-header,
 .tj-contact-area,
-.h7-faq {
+.h7-faq,
+.tj-product-description,
+.tj-service-area {
   background-color: var(--tj-color-common-white);
 }
 
 /* ======================================
    CONTACT PAGE - Equal height cards
+   - Use flexbox to ensure all cards match the tallest one's height
+   - Preserve center alignment for icons and content
+   - Only apply to the contact info cards section (with .rg-30 class)
 ====================================== */
+.tj-contact-area .row.rg-30 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tj-contact-area .row.rg-30 > [class*="col-"] {
+  display: flex;
+}
+
 .tj-contact-area .contact-item {
-  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure map container fills its column properly */
+.tj-contact-area .google-map {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+
+.tj-contact-area .google-map iframe {
+  width: 100%;
+  height: 100%;
 }
 
 /* Page sections that should have white backgrounds */
