@@ -28,7 +28,16 @@ export default [
       },
     },
   },
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      origin: ['https://petstar-dash.ro', 'https://www.petstar-dash.ro', 
+               'https://petstar.ro', 'https://www.petstar.ro', 
+               'http://localhost:8000','http://localhost:8081'],
+      credentials: true,
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',

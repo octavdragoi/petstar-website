@@ -356,12 +356,16 @@
             function initContactForm() {
                 console.log('Initializing contact form...');
 
-                // Highlight active menu item
-                $('.header-menu ul li a').each(function() {
-                    if ($(this).attr('href') === 'contact.html') {
-                        $(this).parent().addClass('active');
-                    }
-                });
+                // Highlight active menu item (only if jQuery is available)
+                if (typeof $ !== 'undefined') {
+                    $('.header-menu ul li a').each(function() {
+                        if ($(this).attr('href') === 'contact.html') {
+                            $(this).parent().addClass('active');
+                        }
+                    });
+                } else {
+                    console.warn('jQuery not loaded yet, skipping menu highlight');
+                }
 
                 // Handle form submission
                 const form = document.getElementById('contact-form');
