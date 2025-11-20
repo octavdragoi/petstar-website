@@ -420,7 +420,7 @@ Website: www.petstar.ro
       });
 
     } catch (error) {
-      strapi.log.error('Contact form error:', error);
+      ctx.strapi.log.error('Contact form error:', error);
       return ctx.internalServerError('An error occurred while processing your request. Please try again later.');
     }
   },
