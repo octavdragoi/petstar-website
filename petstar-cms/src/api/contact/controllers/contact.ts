@@ -4,7 +4,6 @@
 
 export default {
   async submit(ctx) {
-    const strapi = ctx.strapi;
     try {
       const { name, email, phone, subject, message } = ctx.request.body;
 
@@ -420,7 +419,7 @@ Website: www.petstar.ro
       });
 
     } catch (error) {
-      ctx.strapi.log.error('Contact form error:', error);
+      strapi.log.error('Contact form error:', error);
       return ctx.internalServerError('An error occurred while processing your request. Please try again later.');
     }
   },

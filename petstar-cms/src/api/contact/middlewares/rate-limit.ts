@@ -61,7 +61,7 @@ export default (config) => {
       ctx.set('X-RateLimit-Reset', new Date(entry.resetTime).toISOString());
       ctx.set('Retry-After', retryAfter.toString());
 
-      ctx.strapi.log.warn(`Rate limit exceeded for IP: ${ip}`);
+      strapi.log.warn(`Rate limit exceeded for IP: ${ip}`);
 
       return ctx.tooManyRequests('Too many requests. Please try again later.', {
         error: 'Rate limit exceeded',
