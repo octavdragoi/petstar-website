@@ -231,15 +231,17 @@ This email was sent from the PetStar website contact form.
       };
 
       // Send email to technical team
+      const teamEmail = process.env.CONTACT_EMAIL || 'tehnic@petstar.ro';
       await strapi.plugins['email'].services.email.sendTemplatedEmail(
         {
-          to: process.env.CONTACT_EMAIL || 'tehnic@petstar.ro',
+          to: teamEmail,
           from: process.env.EMAIL_FROM || 'noreply@petstar-dash.ro',
           replyTo: email,
         },
         emailTemplate,
         {}
       );
+      strapi.log.info(`Contact form: Sent notification to team (${teamEmail})`);
 
       // Send confirmation email to user
       const confirmationTemplate = {
@@ -412,6 +414,7 @@ Website: www.petstar.ro
         confirmationTemplate,
         {}
       );
+      strapi.log.info(`Contact form: Sent confirmation email to ${email}`);
 
       return ctx.send({
         success: true,
