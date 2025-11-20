@@ -22,7 +22,7 @@ setInterval(() => {
   }
 }, 10 * 60 * 1000);
 
-export default (config, { strapi }) => {
+export default (config) => {
   return async (ctx, next) => {
     // Configuration
     const maxRequests = config.max || 5; // Max requests per window
@@ -61,7 +61,7 @@ export default (config, { strapi }) => {
       ctx.set('X-RateLimit-Reset', new Date(entry.resetTime).toISOString());
       ctx.set('Retry-After', retryAfter.toString());
 
-      strapi.log.warn(`Rate limit exceeded for IP: ${ip}`);
+      ctx.strapi.log.warn(`Rate limit exceeded for IP: ${ip}`);
 
       return ctx.tooManyRequests('Too many requests. Please try again later.', {
         error: 'Rate limit exceeded',
