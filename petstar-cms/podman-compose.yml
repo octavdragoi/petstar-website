@@ -1,0 +1,29 @@
+version: '3'
+services:
+  strapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        NODE_ENV: development
+    container_name: petstar-strapi
+    volumes:
+      # Mount source code for hot-reload
+      - ./src:/opt/app/src:z
+      - ./config:/opt/app/config:z
+      - ./public:/opt/app/public:z
+      - ./database:/opt/app/database:z
+      # Don't mount node_modules (use container's version)
+      - /opt/app/node_modules
+      # Persist data
+      - strapi-data:/opt/app/.tmp
+    ports:
+      - "1337:1337"
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - .env
+    restart: unless-stopped
+
+volumes:
+  strapi-data:

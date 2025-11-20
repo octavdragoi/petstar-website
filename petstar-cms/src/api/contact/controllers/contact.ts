@@ -2,10 +2,9 @@
  * Contact form controller
  */
 
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreController('api::contact.contact', ({ strapi }) => ({
+export default {
   async submit(ctx) {
+    const strapi = ctx.strapi;
     try {
       const { name, email, phone, subject, message } = ctx.request.body;
 
@@ -70,7 +69,7 @@ This email was sent from the PetStar website contact form.
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     .email-header {
-      background: linear-gradient(135deg, #0075ff 0%, #004db3 100%);
+      background: linear-gradient(135deg, #008080 0%, #006666 100%);
       padding: 40px 30px;
       text-align: center;
     }
@@ -82,7 +81,7 @@ This email was sent from the PetStar website contact form.
     }
     .email-header p {
       margin: 10px 0 0 0;
-      color: #e6f2ff;
+      color: #e0f2f1;
       font-size: 14px;
     }
     .email-body {
@@ -90,7 +89,7 @@ This email was sent from the PetStar website contact form.
     }
     .info-section {
       background-color: #f8f9fa;
-      border-left: 4px solid #0075ff;
+      border-left: 4px solid #008080;
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 4px;
@@ -113,7 +112,7 @@ This email was sent from the PetStar website contact form.
       line-height: 1.5;
     }
     .info-value a {
-      color: #0075ff;
+      color: #008080;
       text-decoration: none;
     }
     .message-section {
@@ -222,8 +221,8 @@ This email was sent from the PetStar website contact form.
       <p class="company-name">PetStar Holding</p>
       <p>DN 2A Km 64, 920051 Slobozia, Ialomița, Romania</p>
       <p style="margin-top: 10px;">
-        <a href="https://www.petstar.ro" style="color: #0075ff; text-decoration: none;">www.petstar.ro</a> |
-        <a href="tel:+40243232855" style="color: #0075ff; text-decoration: none;">+40 243 232 855</a>
+        <a href="https://www.petstar.ro" style="color: #008080; text-decoration: none;">www.petstar.ro</a> |
+        <a href="tel:+40243232855" style="color: #008080; text-decoration: none;">+40 243 232 855</a>
       </p>
     </div>
   </div>
@@ -288,7 +287,7 @@ Website: www.petstar.ro
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     .email-header {
-      background: linear-gradient(135deg, #0075ff 0%, #004db3 100%);
+      background: linear-gradient(135deg, #008080 0%, #006666 100%);
       padding: 40px 30px;
       text-align: center;
     }
@@ -312,7 +311,7 @@ Website: www.petstar.ro
     }
     .highlight-box {
       background-color: #f8f9fa;
-      border-left: 4px solid #0075ff;
+      border-left: 4px solid #008080;
       padding: 20px;
       margin: 25px 0;
       border-radius: 4px;
@@ -328,7 +327,7 @@ Website: www.petstar.ro
     }
     .cta-button a {
       display: inline-block;
-      background-color: #0075ff;
+      background-color: #008080;
       color: #ffffff;
       text-decoration: none;
       padding: 12px 30px;
@@ -396,8 +395,8 @@ Website: www.petstar.ro
       <p class="company-name">PetStar Holding</p>
       <p>DN 2A Km 64, 920051 Slobozia, Ialomița, Romania</p>
       <p style="margin-top: 10px;">
-        <a href="https://www.petstar.ro" style="color: #0075ff; text-decoration: none;">www.petstar.ro</a> |
-        <a href="tel:+40243232855" style="color: #0075ff; text-decoration: none;">+40 243 232 855</a>
+        <a href="https://www.petstar.ro" style="color: #008080; text-decoration: none;">www.petstar.ro</a> |
+        <a href="tel:+40243232855" style="color: #008080; text-decoration: none;">+40 243 232 855</a>
       </p>
     </div>
   </div>
@@ -425,4 +424,4 @@ Website: www.petstar.ro
       return ctx.internalServerError('An error occurred while processing your request. Please try again later.');
     }
   },
-}));
+};

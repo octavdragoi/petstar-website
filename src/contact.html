@@ -262,12 +262,18 @@
                         this.reset();
                         // Reset nice-select dropdown
                         $('.nice-select').find('.current').text($('select[name="subject"] option:first').text());
+                    } else if (response.status === 429) {
+                        // Rate limit exceeded
+                        const retryAfter = data.data?.retryAfter ? Math.ceil(data.data.retryAfter / 60) : 15;
+                        alert(`Too many requests. Please try again in ${retryAfter} minutes.`);
                     } else {
                         throw new Error(data.message || 'Failed to send message');
                     }
                 } catch (error) {
                     console.error('Form submission error:', error);
-                    alert('Sorry, there was an error sending your message. Please try again or contact us directly at office@petstar.ro');
+                    if (!error.message.includes('Too many requests')) {
+                        alert('Sorry, there was an error sending your message. Please try again or contact us directly at office@petstar.ro');
+                    }
                 } finally {
                     // Re-enable button
                     submitButton.prop('disabled', false);
